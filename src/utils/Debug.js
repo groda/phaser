@@ -1,14 +1,15 @@
 /**
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
-* @license      https://github.com/photonstorm/phaser/blob/master/license.txt  MIT License
-* @module       Phaser
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Utils
 */
 
 /**
 * A collection of methods for displaying debug information about game objects.
 *
-* @class DebugUtils
+* @class Phaser.Utils.Debug
+* @param {Phaser.Game} game - A reference to the currently running game.
 */
 Phaser.Utils.Debug = function (game) {
 
@@ -30,9 +31,9 @@ Phaser.Utils.Debug.prototype = {
     /**
     * Internal method that resets the debug output values.
     * @method start
-    * @param {Number} x The X value the debug info will start from.
-    * @param {Number} y The Y value the debug info will start from.
-    * @param {String} color The color the debug info will drawn in.
+    * @param {number} x The X value the debug info will start from.
+    * @param {number} y The Y value the debug info will start from.
+    * @param {string} color The color the debug info will drawn in.
     */
     start: function (x, y, color) {
 
@@ -72,9 +73,9 @@ Phaser.Utils.Debug.prototype = {
     /**
     * Internal method that outputs a single line of text.
     * @method line
-    * @param {String} text The line of text to draw.
-    * @param {Number} x The X value the debug info will start from.
-    * @param {Number} y The Y value the debug info will start from.
+    * @param {string} text The line of text to draw.
+    * @param {number} x The X value the debug info will start from.
+    * @param {number} y The Y value the debug info will start from.
     */
     line: function (text, x, y) {
 
@@ -119,14 +120,6 @@ Phaser.Utils.Debug.prototype = {
             this.context.strokeStyle = color;
             this.context.strokeRect(bounds.x, bounds.y, bounds.width, bounds.height);
             this.renderText(quadtree.ID + ' / ' + quadtree.objects.length, bounds.x + 4, bounds.y + 16, 'rgb(0,200,0)', '12px Courier');
-
-            this.context.strokeStyle = 'rgb(0,255,0)';
-
-            // children
-            for (var i = 0; i < quadtree.objects.length; i++)
-            {
-                this.context.strokeRect(quadtree.objects[i].x, quadtree.objects[i].y, quadtree.objects[i].width, quadtree.objects[i].height);
-            }
         }
         else
         {
@@ -382,7 +375,6 @@ Phaser.Utils.Debug.prototype = {
         this.line('x: ' + sprite.x.toFixed(1) + ' y: ' + sprite.y.toFixed(1) + ' rotation: ' + sprite.rotation.toFixed(1));
         this.line('visible: ' + sprite.visible);
         this.line('in camera: ' + sprite.inCamera);
-        this.line('body x: ' + sprite.body.x.toFixed(1) + ' y: ' + sprite.body.y.toFixed(1));
 
         //  0 = scaleX
         //  1 = skewY
@@ -391,6 +383,7 @@ Phaser.Utils.Debug.prototype = {
         //  4 = scaleY
         //  5 = translateY
 
+
         // this.line('id: ' + sprite._id);
         // this.line('scale x: ' + sprite.worldTransform[0]);
         // this.line('scale y: ' + sprite.worldTransform[4]);
@@ -398,8 +391,6 @@ Phaser.Utils.Debug.prototype = {
         // this.line('ty: ' + sprite.worldTransform[5]);
         // this.line('skew x: ' + sprite.worldTransform[3]);
         // this.line('skew y: ' + sprite.worldTransform[1]);
-        // this.line('dx: ' + sprite.body.deltaX());
-        // this.line('dy: ' + sprite.body.deltaY());
 
         // this.line('inCamera: ' + this.game.renderer.spriteRenderer.inCamera(this.game.camera, sprite));
 
@@ -464,48 +455,18 @@ Phaser.Utils.Debug.prototype = {
 
     },
 
-    renderSpriteBody: function (sprite, color) {
+    renderSpriteBounds: function (sprite, color) {
 
         if (this.context == null)
         {
             return;
         }
 
-        color = color || 'rgba(255,0,255, 0.3)';
+        color = color || 'rgba(0, 255, 0, 0.2)';
 
-        this.start(0, 0, color);
-
+        this.start();
         this.context.fillStyle = color;
-        // this.context.fillRect(sprite.body.x - sprite.body.deltaX(), sprite.body.y - sprite.body.deltaY(), sprite.body.width, sprite.body.height);
-        this.context.fillRect(sprite.body.x, sprite.body.y, sprite.body.width, sprite.body.height);
-
-        this.stop();
-
-    },
-
-    renderSpriteBounds: function (sprite, color, fill) {
-
-        if (this.context == null)
-        {
-            return;
-        }
-
-        color = color || 'rgb(255,0,255)';
-
-        this.start(0, 0, color);
-
-        if (fill)
-        {
-            this.context.fillStyle = color;
-            this.context.fillRect(sprite.bounds.x, sprite.bounds.y, sprite.bounds.width, sprite.bounds.height);
-        }
-        else
-        {
-            this.context.strokeStyle = color;
-            this.context.strokeRect(sprite.bounds.x, sprite.bounds.y, sprite.bounds.width, sprite.bounds.height);
-            this.context.stroke();
-        }
-
+        this.context.fillRect(sprite.worldView.x, sprite.worldView.y, sprite.worldView.width, sprite.worldView.height);
         this.stop();
 
     },

@@ -1,13 +1,16 @@
 /**
-* Phaser - TilemapLayer
-*
-* A Tilemap Layer. Tiled format maps can have multiple overlapping layers.
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      https://github.com/photonstorm/phaser/blob/master/license.txt  MIT License
+* @module       Phaser.Tilemap
 */
 
 /**
-* TilemapLayer constructor
-* Create a new <code>TilemapLayer</code>.
+* Phaser - TilemapLayer
 *
+* A Tilemap Layer. Tiled format maps can have multiple overlapping layers.
+* Create a new <code>TilemapLayer</code>.
+* @constructor
 * @param parent {Tilemap} The tilemap that contains this layer.
 * @param id {number} The ID of this layer within the Tilemap array.
 * @param key {string} Asset key for this map.
@@ -101,7 +104,7 @@ Phaser.TilemapLayer = function (parent, id, key, mapFormat, name, tileWidth, til
 
 Phaser.TilemapLayer.prototype = {
 
-	/**
+    /**
     * Set a specific tile with its x and y in tiles.
     * @param x {number} X position of this tile in world coordinates.
     * @param y {number} Y position of this tile in world coordinates.
@@ -122,7 +125,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Set a specific tile with its x and y in tiles.
     * @param x {number} X position of this tile.
     * @param y {number} Y position of this tile.
@@ -140,7 +143,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Swap tiles with 2 kinds of indexes.
     * @param tileA {number} First tile index.
     * @param tileB {number} Second tile index.
@@ -184,7 +187,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Fill a tile block with a specific tile index.
     * @param index {number} Index of tiles you want to fill with.
     * @param [x] {number} x position (in tiles) of block's left-top corner.
@@ -208,7 +211,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Set random tiles to a specific tile block.
     * @param tiles {number[]} Tiles with indexes in this array will be randomly set to the given block.
     * @param [x] {number} x position (in tiles) of block's left-top corner.
@@ -232,7 +235,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Replace one kind of tiles to another kind.
     * @param tileA {number} Index of tiles you want to replace.
     * @param tileB {number} Index of tiles you want to set.
@@ -260,7 +263,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Get a tile block with specific position and size.(both are in tiles)
     * @param x {number} X position of block's left-top corner.
     * @param y {number} Y position of block's left-top corner.
@@ -286,7 +289,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Get a tile with specific position (in world coordinate). (thus you give a position of a point which is within the tile)
     * @param x {number} X position of the point in target tile.
     * @param x {number} Y position of the point in target tile.
@@ -300,7 +303,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Get tiles overlaps the given object.
     * @param object {GameObject} Tiles you want to get that overlaps this.
     * @return {array} Array with tiles informations. (Each contains x, y and the tile.)
@@ -337,7 +340,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Get a tile block with its position and size. (This method does not return, it'll set result to _tempTileBlock)
     * @param x {number} X position of block's left-top corner.
     * @param y {number} Y position of block's left-top corner.
@@ -402,7 +405,7 @@ Phaser.TilemapLayer.prototype = {
         }
     },
 
-	/**
+    /**
     * Get the tile index of specific position (in tiles).
     * @param x {number} X position of the tile.
     * @param y {number} Y position of the tile.
@@ -422,9 +425,9 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Add a column of tiles into the layer.
-    * @param column {string[]/number[]} An array of tile indexes to be added.
+    * @param column {string[]|number[]} An array of tile indexes to be added.
     */
     addColumn: function (column) {
 
@@ -474,7 +477,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Update boundsInTiles with widthInTiles and heightInTiles.
     */
     updateBounds: function () {
@@ -483,7 +486,7 @@ Phaser.TilemapLayer.prototype = {
 
     },
 
-	/**
+    /**
     * Parse tile offsets from map data.
     * Basically this creates a large array of objects that contain the x/y coordinates to grab each tile from
     * for the entire map. Yes we could calculate this at run-time by using the tile index and some math, but we're

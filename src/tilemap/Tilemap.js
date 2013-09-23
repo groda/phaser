@@ -1,21 +1,25 @@
 /**
-* Phaser - Tilemap
-*
-* This GameObject allows for the display of a tilemap within the game world. Tile maps consist of an image, tile data and a size.
-* Internally it creates a TilemapLayer for each layer in the tilemap.
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      https://github.com/photonstorm/phaser/blob/master/license.txt  MIT License
+* @module       Phaser.Tilemap
 */
 
+
 /**
-* Tilemap constructor
+* This GameObject allows for the display of a tilemap within the game world. Tile maps consist of an image, tile data and a size.
+* Internally it creates a TilemapLayer for each layer in the tilemap.
+* <p> 
 * Create a new <code>Tilemap</code>.
 *
-* @param game {Phaser.Game} Current game instance.
-* @param key {string} Asset key for this map.
-* @param mapData {string} Data of this map. (a big 2d array, normally in csv)
-* @param format {number} Format of this map data, available: Tilemap.CSV or Tilemap.JSON.
-* @param resizeWorld {bool} Resize the world bound automatically based on this tilemap?
-* @param tileWidth {number} Width of tiles in this map (used for CSV maps).
-* @param tileHeight {number} Height of tiles in this map (used for CSV maps).
+* @constructor
+* @param {Phaser.Game} game - Current game instance.
+* @param {string} key - Asset key for this map.
+* @param {object} x - Description.
+* @param {object} y - Description.
+* @param {bool} resizeWorld - Resize the world bound automatically based on this tilemap?
+* @param {number} tileWidth - Width of tiles in this map (used for CSV maps).
+* @param {number} tileHeight - Height of tiles in this map (used for CSV maps).
 */
 Phaser.Tilemap = function (game, key, x, y, resizeWorld, tileWidth, tileHeight) {
 
@@ -30,12 +34,13 @@ Phaser.Tilemap = function (game, key, x, y, resizeWorld, tileWidth, tileHeight) 
 
     /**
     * Render iteration counter
+    * @property {number} renderOrderID 
     */
     this.renderOrderID = 0;
 
     /**
     * Tilemap collision callback.
-    * @type {function}
+    * @type {object}
     */
     this.collisionCallback = null;
 
@@ -83,7 +88,7 @@ Phaser.Tilemap.CSV = 0;
 Phaser.Tilemap.JSON = 1;
 
 /**
-* Parset csv map data and generate tiles.
+* Parse csv map data and generate tiles.
 * @param data {string} CSV map data.
 * @param key {string} Asset key for tileset image.
 * @param tileWidth {number} Width of its tile.
@@ -179,7 +184,7 @@ Phaser.Tilemap.prototype.parseTiledJSON = function (json, key) {
 
 /**
 * Create tiles of given quantity.
-* @param qty {number} Quentity of tiles to be generated.
+* @param qty {number} Quantity of tiles to be generated.
 */
 Phaser.Tilemap.prototype.generateTiles = function (qty) {
 
@@ -193,7 +198,7 @@ Phaser.Tilemap.prototype.generateTiles = function (qty) {
 /**
 * Set callback to be called when this tilemap collides.
 * @param context {object} Callback will be called with this context.
-* @param callback {function} Callback function.
+* @param callback {Function} Callback function.
 */
 Phaser.Tilemap.prototype.setCollisionCallback = function (context, callback) {
 
@@ -208,8 +213,8 @@ Phaser.Tilemap.prototype.setCollisionCallback = function (context, callback) {
 * @param end {number} Last index of tiles.
 * @param collision {number} Bit field of flags. (see Tile.allowCollision)
 * @param resetCollisions {bool} Reset collision flags before set.
-* @param separateX {bool} Enable seprate at x-axis.
-* @param separateY {bool} Enable seprate at y-axis.
+* @param separateX {bool} Enable separate at x-axis.
+* @param separateY {bool} Enable separate at y-axis.
 */
 Phaser.Tilemap.prototype.setCollisionRange = function (start, end, left, right, up, down, resetCollisions, separateX, separateY) {
 
@@ -229,8 +234,13 @@ Phaser.Tilemap.prototype.setCollisionRange = function (start, end, left, right, 
 * @param values {number[]} Index array which contains all tile indexes. The tiles with those indexes will be setup with rest parameters.
 * @param collision {number} Bit field of flags. (see Tile.allowCollision)
 * @param resetCollisions {bool} Reset collision flags before set.
-* @param separateX {bool} Enable seprate at x-axis.
-* @param separateY {bool} Enable seprate at y-axis.
+* @param {bool} left - Indicating collide with any object on the left.
+* @param {bool} right - Indicating collide with any object on the right.
+* @param {bool} up - Indicating collide with any object on the top.
+* @param {bool} down - Indicating collide with any object on the bottom.
+
+* @param separateX {bool} Enable separate at x-axis.
+* @param separateY {bool} Enable separate at y-axis.
 */
 Phaser.Tilemap.prototype.setCollisionByIndex = function (values, left, right, up, down, resetCollisions, separateX, separateY) {
 
@@ -296,7 +306,7 @@ Phaser.Tilemap.prototype.getTileFromWorldXY = function (x, y, layer) {
 /**
 * Gets the tile underneath the Input.x/y position
 * @param layer The layer to check, defaults to 0
-* @returns {Tile}
+* @return {Tile}
 */
 Phaser.Tilemap.prototype.getTileFromInputXY = function (layer) {
 
@@ -309,7 +319,7 @@ Phaser.Tilemap.prototype.getTileFromInputXY = function (layer) {
 /**
 * Get tiles overlaps the given object.
 * @param object {GameObject} Tiles you want to get that overlaps this.
-* @return {array} Array with tiles information. (Each contains x, y and the tile.)
+* @return {Array} Array with tiles information. (Each contains x, y and the tile.)
 */
 Phaser.Tilemap.prototype.getTileOverlaps = function (object) {
 
@@ -321,8 +331,8 @@ Phaser.Tilemap.prototype.getTileOverlaps = function (object) {
 
 /**
 * Check whether this tilemap collides with the given game object or group of objects.
-* @param objectOrGroup {function} Target object of group you want to check.
-* @param callback {function} This is called if objectOrGroup collides the tilemap.
+* @param objectOrGroup {Function} Target object of group you want to check.
+* @param callback {Function} This is called if objectOrGroup collides the tilemap.
 * @param context {object} Callback will be called with this context.
 * @return {bool} Return true if this collides with given object, otherwise return false.
 */

@@ -1,8 +1,8 @@
 /**
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
-* @license      https://github.com/photonstorm/phaser/blob/master/license.txt  MIT License
-* @module       Phaser.Utils
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Utils
 */
 
 /**
@@ -53,10 +53,11 @@ Phaser.Utils = {
 
 	},
 
-	/**
+    /**
     * This is a slightly modified version of jQuery.isPlainObject
     * @method isPlainObject
-    * @param {object} obj
+    * @param {object} obj - Description.
+    * @returns{bool} - Description.
     */
 	isPlainObject: function (obj) {
 
@@ -89,13 +90,13 @@ Phaser.Utils = {
 
 
 	//	deep, target, objects to copy to the target object
-	//	This is a slightly modified version of jQuery.extend (http://api.jquery.com/jQuery.extend/)
+	//	This is a slightly modified version of {@link http://api.jquery.com/jQuery.extend/|jQuery.extend}
 	//	deep (boolean)
 	//	target (object to add to)
 	//	objects ... (objects to recurse and copy from)
 
-	/**
-    * This is a slightly modified version of jQuery.extend (http://api.jquery.com/jQuery.extend/)
+    /**
+    * This is a slightly modified version of {@link http://api.jquery.com/jQuery.extend/|jQuery.extend}
     * @method extend
     * @param {bool} [deep] If true, the merge becomes recursive (aka. deep copy).
     * @param {object} target The object to add to
@@ -181,7 +182,7 @@ Phaser.Utils = {
  *
  * @method HEXtoRGB
  * @param {Number} hex 
- * @return {array}
+ * @returns {array}
  */
 function HEXtoRGB(hex) {
 	return [(hex >> 16 & 0xFF) / 255, ( hex >> 8 & 0xFF) / 255, (hex & 0xFF)/ 255];
