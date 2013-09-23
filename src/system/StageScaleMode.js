@@ -154,7 +154,10 @@ Phaser.StageScaleMode.NO_SCALE = 1;
 Phaser.StageScaleMode.SHOW_ALL = 2;
 
 Phaser.StageScaleMode.prototype = {
-
+    /**
+    * Description.
+    * @method startFullScreen
+    */
     startFullScreen: function () {
 
         if (this.isFullScreen)
@@ -182,6 +185,10 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
+    /**
+    * Description.
+    * @method stopFullScreen
+    */
     stopFullScreen: function () {
 
         if (document['cancelFullScreen'])
@@ -199,6 +206,10 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
+    /**
+    * Description.
+    * @method checkOrientationState
+    */
     checkOrientationState: function () {
 
         //  They are in the wrong orientation
@@ -226,6 +237,7 @@ Phaser.StageScaleMode.prototype = {
 
     /**
     * Handle window.orientationchange events
+    * @method checkOrientation
     * @param {object} event - Description.
     */
     checkOrientation: function (event) {
@@ -250,6 +262,7 @@ Phaser.StageScaleMode.prototype = {
 
     /**
     * Handle window.resize events
+    * @method checkResize
     * @param {object} event - Description.
     */
     checkResize: function (event) {
@@ -280,6 +293,7 @@ Phaser.StageScaleMode.prototype = {
 
     /**
     * Re-calculate scale mode and update screen size.
+    * @method refresh
     */
     refresh: function () {
 
@@ -364,6 +378,7 @@ Phaser.StageScaleMode.prototype = {
 
     /**
     * Description.
+    * @method setSize
     */
     setSize: function () {
 
@@ -430,6 +445,7 @@ Phaser.StageScaleMode.prototype = {
 
     /**
     * Description.
+    * @method setMaximum
     */
     setMaximum: function () {
 
@@ -438,6 +454,10 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
+    /**
+    * Description.
+    * @method setShowAll
+    */
     setShowAll: function () {
 
         var multiplier = Math.min((window.innerHeight / this.game.height), (window.innerWidth / this.game.width));
@@ -449,6 +469,7 @@ Phaser.StageScaleMode.prototype = {
 
     /**
     * Description.
+    * @method setExactFit
     */
     setExactFit: function () {
 
