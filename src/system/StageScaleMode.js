@@ -1,26 +1,47 @@
+/**
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.StageScaleMode
+*/
+
+/**
+* An Animation instance contains a single animation and the controls to play it.
+* It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
+*
+* @class Phaser.StageScaleMode 
+* @constructor
+* @param {Phaser.Game} game - A reference to the currently running game.
+* @param {number} width - Description.
+* @param {number} height - Description.
+*/
 Phaser.StageScaleMode = function (game, width, height) {
 
     /**
-    * Stage height when start the game.
+    * Stage height when starting the game.
     * @type {number}
+    * @defaultvalue
     */
     this._startHeight = 0;
 
     /**
     * If the game should be forced to use Landscape mode, this is set to true by Game.Stage
     * @type {bool}
+    * @defaultvalue
     */
     this.forceLandscape = false;
 
     /**
     * If the game should be forced to use Portrait mode, this is set to true by Game.Stage
     * @type {bool}
+    * @defaultvalue
     */
     this.forcePortrait = false;
 
     /**
     * If the game should be forced to use a specific orientation and the device currently isn't in that orientation this is set to true.
     * @type {bool}
+    * @defaultvalue
     */
     this.incorrectOrientation = false;
 
@@ -29,6 +50,7 @@ Phaser.StageScaleMode = function (game, width, height) {
     * It will place a re-calculated margin-left pixel value onto the canvas element which is updated on orientation/resizing.
     * It doesn't care about any other DOM element that may be on the page, it literally just sets the margin.
     * @type {bool}
+    * @defaultvalue
     */
     this.pageAlignHorizontally = false;
 
@@ -37,12 +59,14 @@ Phaser.StageScaleMode = function (game, width, height) {
     * It will place a re-calculated margin-left pixel value onto the canvas element which is updated on orientation/resizing.
     * It doesn't care about any other DOM element that may be on the page, it literally just sets the margin.
     * @type {bool}
+    * @defaultvalue
     */
     this.pageAlignVeritcally = false;
 
     /**
-    * Minimum width the canvas should be scaled to (in pixels)
+    * Minimum width the canvas should be scaled to (in pixels).
     * @type {number}
+    * @defaultvalue
     */
     this.minWidth = null;
 
@@ -50,12 +74,14 @@ Phaser.StageScaleMode = function (game, width, height) {
     * Maximum width the canvas should be scaled to (in pixels).
     * If null it will scale to whatever width the browser can handle.
     * @type {number}
+    * @defaultvalue
     */
     this.maxWidth = null;
 
     /**
-    * Minimum height the canvas should be scaled to (in pixels)
+    * Minimum height the canvas should be scaled to (in pixels).
     * @type {number}
+    * @defaultvalue
     */
     this.minHeight = null;
 
@@ -63,24 +89,28 @@ Phaser.StageScaleMode = function (game, width, height) {
     * Maximum height the canvas should be scaled to (in pixels).
     * If null it will scale to whatever height the browser can handle.
     * @type {number}
+    * @defaultvalue
     */
     this.maxHeight = null;
 
     /**
     * Width of the stage after calculation.
     * @type {number}
+    * @defaultvalue
     */
     this.width = 0;
 
     /**
     * Height of the stage after calculation.
     * @type {number}
+    * @defaultvalue
     */
     this.height = 0;
 
     /**
-    * The maximum number of times it will try to resize the canvas to fill the browser (default is 5)
+    * The maximum number of times it will try to resize the canvas to fill the browser (default is 5).
     * @type {number}
+    * @defaultvalue
     */
     this.maxIterations = 5;
     this.game = game;
@@ -194,8 +224,9 @@ Phaser.StageScaleMode.prototype = {
         }
     },
 
-	/**
+    /**
     * Handle window.orientationchange events
+    * @param {object} event - Description.
     */
     checkOrientation: function (event) {
 
@@ -217,8 +248,9 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
-	/**
+    /**
     * Handle window.resize events
+    * @param {object} event - Description.
     */
     checkResize: function (event) {
 
@@ -246,7 +278,7 @@ Phaser.StageScaleMode.prototype = {
         }
     },
 
-	/**
+    /**
     * Re-calculate scale mode and update screen size.
     */
     refresh: function () {
@@ -280,8 +312,9 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
-	/**
+    /**
     * Set screen size automatically based on the scaleMode.
+    * @param {object} force - Description.
     */
     setScreenSize: function (force) {
 
@@ -329,6 +362,9 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
+    /**
+    * Description.
+    */
     setSize: function () {
 
         if (this.incorrectOrientation == false)
@@ -392,6 +428,9 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
+    /**
+    * Description.
+    */
     setMaximum: function () {
 
         this.width = window.innerWidth;
@@ -408,6 +447,9 @@ Phaser.StageScaleMode.prototype = {
 
     },
 
+    /**
+    * Description.
+    */
     setExactFit: function () {
 
         var availableWidth = window.innerWidth - 0;
@@ -439,6 +481,9 @@ Phaser.StageScaleMode.prototype = {
 
 };
 
+/**
+* Description.
+*/
 Object.defineProperty(Phaser.StageScaleMode.prototype, "isFullScreen", {
 
     get: function () {
@@ -454,6 +499,9 @@ Object.defineProperty(Phaser.StageScaleMode.prototype, "isFullScreen", {
 
 });
 
+/**
+* Description.
+*/
 Object.defineProperty(Phaser.StageScaleMode.prototype, "isPortrait", {
 
     get: function () {
@@ -462,6 +510,9 @@ Object.defineProperty(Phaser.StageScaleMode.prototype, "isPortrait", {
 
 });
 
+/**
+* Description.
+*/
 Object.defineProperty(Phaser.StageScaleMode.prototype, "isLandscape", {
 
     get: function () {

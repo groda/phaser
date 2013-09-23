@@ -1,7 +1,17 @@
 /**
-* Phaser - RequestAnimationFrame
-*
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.RequestAnimationFrame
+*/
+
+
+/**
 * Abstracts away the use of RAF or setTimeOut for the core game update loop.
+*
+* @class Phaser.RequestAnimationFrame 
+* @constructor
+* @param {Phaser.Game} game - A reference to the currently running game.
 */
 Phaser.RequestAnimationFrame = function(game) {
 	
@@ -67,7 +77,8 @@ Phaser.RequestAnimationFrame.prototype = {
 
 	/**
 	* The update method for the requestAnimationFrame
-	* @method RAFUpdate
+	* @method updateRAF	
+	* @param {number} time - Description.
 	**/
 	updateRAF: function (time) {
 
@@ -79,7 +90,7 @@ Phaser.RequestAnimationFrame.prototype = {
 
 	/**
 	* The update method for the setTimeout
-	* @method SetTimeoutUpdate
+	* @method updateSetTimeout
 	**/
 	updateSetTimeout: function () {
 
@@ -111,7 +122,7 @@ Phaser.RequestAnimationFrame.prototype = {
 	/**
 	* Is the browser using setTimeout?
 	* @method isSetTimeOut
-	* @return bool
+	* @return {bool}
 	**/
 	isSetTimeOut: function () {
 		return this._isSetTimeOut;
@@ -120,7 +131,7 @@ Phaser.RequestAnimationFrame.prototype = {
 	/**
 	* Is the browser using requestAnimationFrame?
 	* @method isRAF
-	* @return bool
+	* @return {bool}
 	**/
 	isRAF: function () {
 		return (this._isSetTimeOut === false);
