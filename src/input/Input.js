@@ -1,14 +1,33 @@
 /**
-* Phaser.Input
-*
-* A game specific Input manager that looks after the mouse, keyboard and touch objects.
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.Input
+*/
+
+/**
+* Constructor for Phaser Input.
+* @class Phaser.Input
+* @classdesc A game specific Input manager that looks after the mouse, keyboard and touch objects.
 * This is updated by the core game loop.
+* @constructor
+* @param {Phaser.Game} game - Current game instance.
 */
 Phaser.Input = function (game) {
 
+	/**
+	* @property {Phaser.Game} game - A reference to the currently running game. 
+	*/
 	this.game = game;
 
+	/**
+    * @property {Description} hitCanvas - Description. 
+	*/
     this.hitCanvas = null;
+    
+	/**
+     * @property {Description} hitContext - Description. 
+ 	*/
     this.hitContext = null;
 	
 };

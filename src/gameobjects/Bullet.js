@@ -1,3 +1,22 @@
+/**
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.Bullet
+*/
+
+/**
+* Description.
+*
+* @class Phaser.Bullet
+* @constructor
+* @param {Phaser.Game} game - A reference to the currently running game.
+* @param {number} x - X position of Description.
+* @param {number} y - Y position of Description.
+* @param {Description} key - Description.
+* @param {Description} frame - Description.
+*/
+
 Phaser.Bullet = function (game, x, y, key, frame) {
 
     x = x || 0;
@@ -5,22 +24,47 @@ Phaser.Bullet = function (game, x, y, key, frame) {
     key = key || null;
     frame = frame || null;
 
+    /**
+    * @property {Phaser.Game} game - A reference to the currently running Game.
+    */
 	this.game = game;
-
-    //  If exists = false then the Sprite isn't updated by the core game loop or physics subsystem at all
+  
+	/** 
+	* @property {bool} exists - If exists = false then the Sprite isn't updated by the core game loop or physics subsystem at all.
+	* @default
+	*/
     this.exists = true;
 
-    //  This is a handy little var your game can use to determine if a sprite is alive or not, it doesn't effect rendering
+    /**
+    * @property {bool} alive - This is a handy little var your game can use to determine if a sprite is alive or not, it doesn't effect rendering.
+ 	* @default
+ 	*/
     this.alive = true;
 
+	/**
+    * @property {Description} group - Description.
+  	* @default
+  	*/
     this.group = null;
 
+	/**
+    * @property {string} name - Description.
+   	* @default
+   	*/
     this.name = '';
 
+	/**
+    * @property {number} renderOrderID - Description.
+   	* @default
+   	*/
     this.renderOrderID = -1;
 
-    //  If you would like the Sprite to have a lifespan once 'born' you can set this to a positive value. Handy for particles, bullets, etc.
-    //  The lifespan is decremented by game.time.elapsed each update, once it reaches zero the kill() function is called.
+    /**  
+    * If you would like the Sprite to have a lifespan once 'born' you can set this to a positive value. Handy for particles, bullets, etc.
+    *  The lifespan is decremented by game.time.elapsed each update, once it reaches zero the kill() function is called.
+    * @property {number} lifespan
+    * @default
+    */
     this.lifespan = 0;
 
     this.key = key;
@@ -61,40 +105,56 @@ Phaser.Bullet = function (game, x, y, key, frame) {
     }
 
     /**
-     * The anchor sets the origin point of the texture.
-     * The default is 0,0 this means the textures origin is the top left 
-     * Setting than anchor to 0.5,0.5 means the textures origin is centered
-     * Setting the anchor to 1,1 would mean the textures origin points will be the bottom right
-     *
-     * @property anchor
-     * @type Point
-     */
+    * The anchor sets the origin point of the texture.
+    * The default is 0,0 this means the textures origin is the top left 
+    * Setting than anchor to 0.5,0.5 means the textures origin is centered
+    * Setting the anchor to 1,1 would mean the textures origin points will be the bottom right
+    *
+    * @property {Phaser.Point} anchor
+    */
     this.anchor = new Phaser.Point();
 
+    /**
+    * @property {Description} x - Description.
+    */
     this.x = x;
+    
+    /**
+    * @property {Description} y - Description.
+    */
+    
     this.y = y;
-
+    /**
+    * @property {Description} position - Description.
+    */
 	this.position.x = x;
 	this.position.y = y;
 
     /**
-     * Should this Sprite be automatically culled if out of range of the camera?
-     * A culled sprite has its visible property set to 'false'.
-     * Note that this check doesn't look at this Sprites children, which may still be in camera range.
-     * So you should set autoCull to false if the Sprite will have children likely to still be in camera range.
-     *
-     * @property autoCull
-     * @type Boolean
-     */
+    * Should this Sprite be automatically culled if out of range of the camera?
+    * A culled sprite has its visible property set to 'false'.
+    * Note that this check doesn't look at this Sprites children, which may still be in camera range.
+    * So you should set autoCull to false if the Sprite will have children likely to still be in camera range.
+    *
+    * @property {bool} autoCull
+    * @default
+    */
     this.autoCull = false;
 
-    //  Replaces the PIXI.Point with a slightly more flexible one
+    /**
+    * @property {Phaser.Point} scale - Replaces the PIXI.Point with a slightly more flexible one.
+    */
     this.scale = new Phaser.Point(1, 1);
 
-    //  Influence of camera movement upon the position
+    /**
+    * @property {Phaser.Point} scrollFactor - Influence of camera movement upon the position.
+    */
     this.scrollFactor = new Phaser.Point(1, 1);
 
-    //  A mini cache for storing all of the calculated values
+    /**
+    * @property {Description} _cache - A mini cache for storing all of the calculated values.
+    * @private
+    */
     this._cache = { 
 
         dirty: false,
@@ -130,14 +190,31 @@ Phaser.Bullet = function (game, x, y, key, frame) {
 
     };
 
+    /**
+    * @property {Description} bounds - Description.
+    */
     this.bounds = new Phaser.Rectangle(x, y, this.currentFrame.sourceSizeW, this.currentFrame.sourceSizeH);
-
-    //  Set-up the physics body
+ 
+    /**
+    * @property {Description} body - Set-up the physics body.
+    */
     this.body = new Phaser.Physics.Arcade.Body(this);
 
-    //  World bounds check
+    /**
+    * @property {Description} body - World bounds check.
+    */
     this.inWorld = Phaser.Rectangle.intersects(this.bounds, this.game.world.bounds);
+    
+    /**
+    * @property {Description} body - World bounds check.
+    */    
     this.inWorldThreshold = 0;
+    
+    /**
+    * @property {Description} _outOfBoundsFired - Description.
+    * @private
+    * @default
+    */
     this._outOfBoundsFired = false;
 
 };
@@ -148,6 +225,7 @@ Phaser.Bullet.prototype.constructor = Phaser.Bullet;
 
 /**
  * Automatically called by World.update. You can create your own update in Objects that extend Phaser.Bullet.
+ * @method Phaser.Bullet.prototype.preUpdate
  */
 Phaser.Bullet.prototype.preUpdate = function() {
 
@@ -263,6 +341,10 @@ Phaser.Bullet.prototype.preUpdate = function() {
 
 }
 
+/**
+ * Description.
+ * @method Phaser.Bullet.prototype.revive
+ */
 Phaser.Bullet.prototype.revive = function() {
 
     this.alive = true;
@@ -272,6 +354,10 @@ Phaser.Bullet.prototype.revive = function() {
 
 }
 
+/**
+ * Description.
+ * @method Phaser.Bullet.prototype.kill
+ */
 Phaser.Bullet.prototype.kill = function() {
 
     this.alive = false;
@@ -281,6 +367,10 @@ Phaser.Bullet.prototype.kill = function() {
 
 }
 
+/**
+ * Description.
+ * @method Phaser.Bullet.prototype.reset
+ */
 Phaser.Bullet.prototype.reset = function(x, y) {
 
     this.x = x;
@@ -295,6 +385,10 @@ Phaser.Bullet.prototype.reset = function(x, y) {
     
 }
 
+/**
+ * Description.
+ * @method Phaser.Bullet.prototype.updateBounds
+ */
 Phaser.Bullet.prototype.updateBounds = function() {
 
     //  Update the edge points
@@ -326,6 +420,10 @@ Phaser.Bullet.prototype.updateBounds = function() {
 
 }
 
+/**
+ * Description.
+ * @method Phaser.Bullet.prototype.bringToTop
+ */
 Phaser.Bullet.prototype.bringToTop = function() {
 
     if (this.group)

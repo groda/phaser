@@ -2,7 +2,7 @@
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
 * @license      https://github.com/photonstorm/phaser/blob/master/license.txt  MIT License
-* @module       Phaser.Tilemap
+* @module       Phaser.TilemapRenderer
 */
 
 /**
@@ -14,20 +14,93 @@
 */
 Phaser.TilemapRenderer = function (game) {
 
+	/**
+	* @property {Phaser.Game} game - A reference to the currently running game. 
+	*/
     this.game = game;
-
-    //  Local rendering related temp vars to help avoid gc spikes through constant var creation
+  
+	/**
+	* @property {number} _ga - Local rendering related temp vars to help avoid gc spikes through constant var creation. 
+	* @private 
+	* @default
+	*/
     this._ga = 1;
+    
+	/**
+	* @property {number} _dx - Description. 
+	* @private 
+	* @default
+	*/
     this._dx = 0;
+    
+	/**
+	* @property {number} _dy - Description. 
+	* @private 
+	* @default
+	*/
     this._dy = 0;
+    
+	/**
+	* @property {number} _dw - Description. 
+	* @private 
+	* @default
+	*/
     this._dw = 0;
+    
+	/**
+	* @property {number} _dh - Description. 
+	* @private 
+	* @default
+	*/
     this._dh = 0;
+    
+	/**
+	* @property {number} _tx - Description. 
+	* @private 
+	* @default
+	*/
     this._tx = 0;
+    
+	/**
+	* @property {number} _ty - Description. 
+	* @private 
+	* @default
+	*/
     this._ty = 0;
+    
+	/**
+	* @property {number} _tl - Description. 
+	* @private 
+	* @default
+	*/
     this._tl = 0;
+    
+	/**
+	* @property {number} _maxX - Description. 
+	* @private 
+	* @default
+	*/
     this._maxX = 0;
+    
+	/**
+	* @property {number} _maxY - Description. 
+	* @private 
+	* @default
+	*/
     this._maxY = 0;
+    
+	/**
+	* @property {number} _startX - Description. 
+	* @private 
+	* @default
+	*/
     this._startX = 0;
+    
+	/**
+	* @property {number} _startY - Description. 
+	* @private 
+	* @default
+	*/
     this._startY = 0;
 	
 };
@@ -35,9 +108,11 @@ Phaser.TilemapRenderer = function (game) {
 Phaser.TilemapRenderer.prototype = {
 
     /**
-     * Render a tilemap to a canvas.
-     * @param tilemap {Tilemap} The tilemap data to render.
-     */
+    * Render a tilemap to a canvas.
+    * @method render
+    * @param tilemap {Tilemap} The tilemap data to render.
+    * @return {bool} Description.
+    */
     render: function (tilemap) {
 
         //  Loop through the layers

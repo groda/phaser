@@ -1,7 +1,7 @@
 /**
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
-* @license      https://github.com/photonstorm/phaser/blob/master/license.txt  MIT License
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
 * @module       Phaser.Animation
 */
 
@@ -17,12 +17,12 @@
 * @param {Phaser.Animation.FrameData} frameData - The FrameData object that contains all frames used by this Animation.
 * @param {(Array.<number>|Array.<string>)} frames - An array of numbers or strings indicating which frames to play in which order.
 * @param {number} delay - The time between each frame of the animation, given in ms.
-* @param {boolean} looped - Should this animation loop or play through once.
+* @param {bool} looped - Should this animation loop or play through once?
 */
 Phaser.Animation = function (game, parent, name, frameData, frames, delay, looped) {
 
     /**
-    * @property {Phaser.Game} game - A reference to the currently running Game.
+    * @property {Phaser.Game} game - Local reference to game.
     */
 	this.game = game;
 
@@ -56,18 +56,18 @@ Phaser.Animation = function (game, parent, name, frameData, frames, delay, loope
 	this.delay = 1000 / delay;
 
     /**
-    * @property {boolean} looped - The loop state of the Animation.
+    * @property {bool} looped - The loop state of the Animation.
     */
 	this.looped = looped;
 
     /**
-    * @property {boolean} isFinished - The finished state of the Animation. Set to true once playback completes, false during playback.
+    * @property {bool} isFinished - The finished state of the Animation. Set to true once playback completes, false during playback.
     * @default
     */
 	this.isFinished = false;
 
     /**
-    * @property {boolean} isPlaying - The playing state of the Animation. Set to false once playback completes, true during playback.
+    * @property {bool} isPlaying - The playing state of the Animation. Set to false once playback completes, true during playback.
     * @default
     */
 	this.isPlaying = false;
@@ -86,15 +86,17 @@ Phaser.Animation = function (game, parent, name, frameData, frames, delay, loope
 	
 };
 
+
+
 Phaser.Animation.prototype = {
 
     /**
     * Plays this animation.
     *
     * @method play
-    * @param {Number} [frameRate=null] The framerate to play the animation at. The speed is given in frames per second. If not provided the previously set frameRate of the Animation is used.
-    * @param {Boolean} [loop=null] Should the animation be looped after playback. If not provided the previously set loop value of the Animation is used.
-    * @return {Phaser.Animation} A reference to this Animation instance.
+    * @param {number} [frameRate=null] - The framerate to play the animation at. The speed is given in frames per second. If not provided the previously set frameRate of the Animation is used.
+    * @param {bool} [loop=null] - Should the animation be looped after playback. If not provided the previously set loop value of the Animation is used.
+    * @return {Phaser.Animation} - A reference to this Animation instance.
     */
     play: function (frameRate, loop) {
 
@@ -156,7 +158,7 @@ Phaser.Animation.prototype = {
     * Stops playback of this animation and set it to a finished state. If a resetFrame is provided it will stop playback and set frame to the first in the animation.
     *
     * @method stop
-    * @param {Boolean} [resetFrame=false] If true after the animation stops the currentFrame value will be set to the first frame in this animation.
+    * @param {bool} [resetFrame=false] - If true after the animation stops the currentFrame value will be set to the first frame in this animation.
     */
     stop: function (resetFrame) {
 
@@ -252,7 +254,7 @@ Object.defineProperty(Phaser.Animation.prototype, "frameTotal", {
 
     /**
     * @method frameTotal
-    * @return {Number} The total number of frames in this animation.
+    * @return {number} The total number of frames in this animation.
     */
     get: function () {
         return this._frames.length;
@@ -260,12 +262,13 @@ Object.defineProperty(Phaser.Animation.prototype, "frameTotal", {
 
 });
 
+/**
+* Sets the current frame to the given frame index and updates the texture cache.
+* @method
+* @param {number} value - The frame to display
+* @memberOf {Phaser.Animation}
+*/
 Object.defineProperty(Phaser.Animation.prototype, "frame", {
-
-    /**
-    * @method frame
-    * @return {Animation.Frame} Returns the current frame, or if not set the index of the most recent frame.
-    */
     get: function () {
 
         if (this.currentFrame !== null)
@@ -278,11 +281,6 @@ Object.defineProperty(Phaser.Animation.prototype, "frame", {
         }
 
     },
-
-    /**
-    * @method frame
-    * @return {Number} Sets the current frame to the given frame index and updates the texture cache.
-    */
     set: function (value) {
 
         this.currentFrame = this._frameData.getFrame(value);

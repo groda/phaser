@@ -2,7 +2,7 @@
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
 * @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
-* @module       Utils
+* @module       Phaser.Utils
 */
 
 /**
@@ -13,15 +13,15 @@
 Phaser.Utils = {
 	
 	/**
-	*  Javascript string pad
-	*  http://www.webtoolkit.info/
-	* pad = the string to pad it out with (defaults to a space)
+	*  Javascript string pad ({@link http://www.webtoolkit.info/})
+	* pad = the string to pad it out with (defaults to a space)<br>
 	* dir = 1 (left), 2 (right), 3 (both)
 	* @method pad
-	* @param {string} str the target string 
-	* @param {number} pad the string to pad it out with (defaults to a space)
-	* @param {number} len 
-	* @param {number} [dir=3] the direction dir = 1 (left), 2 (right), 3 (both)
+	* @param {string} str - The target string. 
+	* @param {number} len - Description.
+	* @param {number} pad - the string to pad it out with (defaults to a space).
+	* @param {number} [dir=3] the direction dir = 1 (left), 2 (right), 3 (both).
+	* @return {string}
 	**/
 	pad: function (str, len, pad, dir) {
 
@@ -54,10 +54,10 @@ Phaser.Utils = {
 	},
 
     /**
-    * This is a slightly modified version of jQuery.isPlainObject
+    * This is a slightly modified version of jQuery.isPlainObject.
     * @method isPlainObject
     * @param {object} obj - Description.
-    * @returns{bool} - Description.
+    * @return {bool} - Description.
     */
 	isPlainObject: function (obj) {
 
@@ -98,9 +98,7 @@ Phaser.Utils = {
     /**
     * This is a slightly modified version of {@link http://api.jquery.com/jQuery.extend/|jQuery.extend}
     * @method extend
-    * @param {bool} [deep] If true, the merge becomes recursive (aka. deep copy).
-    * @param {object} target The object to add to
-    * @param {object} objets Objects to recurse and copy from
+    * @return {Description} Description.
     */
 	extend: function () {
 
@@ -181,8 +179,8 @@ Phaser.Utils = {
  * Converts a hex color number to an [R, G, B] array
  *
  * @method HEXtoRGB
- * @param {Number} hex 
- * @returns {array}
+ * @param {number} hex 
+ * @return {array}
  */
 function HEXtoRGB(hex) {
 	return [(hex >> 16 & 0xFF) / 255, ( hex >> 8 & 0xFF) / 255, (hex & 0xFF)/ 255];

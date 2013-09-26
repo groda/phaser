@@ -1,3 +1,22 @@
+/**
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.Group
+*/
+
+
+/**
+* Phaser Group constructor.
+* @class Phaser.Group
+* @classdesc An Animation instance contains a single animation and the controls to play it.
+* It is created by the AnimationManager, consists of Animation.Frame objects and belongs to a single Game Object such as a Sprite.
+* @constructor
+* @param {Phaser.Game} game - A reference to the currently running game.
+* @param {Description} parent - Description.
+* @param {string} name - The unique name for this animation, used in playback commands.
+* @param {bool} useStage - Description.
+*/
 Phaser.Group = function (game, parent, name, useStage) {
 
 	parent = parent || null;
@@ -7,7 +26,14 @@ Phaser.Group = function (game, parent, name, useStage) {
 		useStage = false;
 	}
 
+    /**
+	* @property {Phaser.Game} game - A reference to the currently running Game.
+	*/
 	this.game = game;
+	
+    /**
+	* @property {Phaser.Game} name - Description.
+	*/
 	this.name = name || 'group';
 
 	if (useStage)
@@ -36,19 +62,34 @@ Phaser.Group = function (game, parent, name, useStage) {
 		}
 	}
 
+	/**
+	* @property {Description} type - Description.
+	*/
 	this.type = Phaser.GROUP;
 
+	/**
+	* @property {bool} exists - Description.
+	* @default
+	*/
 	this.exists = true;
 
-    /**
-    * Helper for sort.
-    */
+	/**
+	* @property {string} _sortIndex - Helper for sort.
+	* @private
+	* @default
+	*/
     this._sortIndex = 'y';
 	
 };
 
 Phaser.Group.prototype = {
-
+    /**
+    * Description.
+    *
+    * @method add
+	* @param {Description} child - Description.
+	* @return {Description} Description.
+    */
 	add: function (child) {
 
 		if (child.group !== this)
@@ -66,7 +107,14 @@ Phaser.Group.prototype = {
 		return child;
 
 	},
-
+    /**
+	* Description.
+	*
+    * @method addAt
+	* @param {Description} child - Description.
+	* @param {Description} index - Description.
+    * @return {Description} Description.
+	*/
 	addAt: function (child, index) {
 
 		if (child.group !== this)
@@ -85,6 +133,13 @@ Phaser.Group.prototype = {
 
 	},
 
+    /**
+	* Description.
+	*
+    * @method getAt
+	* @param {Description} index - Description.
+    * @return {Description} Description.
+	*/
 	getAt: function (index) {
 
 		return this._container.getChildAt(index);
@@ -111,6 +166,14 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	*
+    * @method swap
+	* @param {Description} child1 - Description.
+	* @param {Description} child2 - Description.
+    * @return {bool} Description.
+	*/
 	swap: function (child1, child2) {
 
 		if (child1 === child2 || !child1.parent || !child2.parent)
@@ -231,6 +294,13 @@ Phaser.Group.prototype = {
 		
 	},
 
+	/**
+	* Description.
+	*
+    * @method bringToTop
+	* @param {Description} child - Description.
+    * @return {Description} Description.
+	*/
 	bringToTop: function (child) {
 
 		if (child.group === this)
@@ -243,12 +313,26 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	*
+    * @method getIndex
+	* @param {Description} child - Description.
+    * @return {Description} Description.
+	*/
 	getIndex: function (child) {
 
 		return this._container.children.indexOf(child);
 
 	},
 
+	/**
+	* Description.
+	*
+    * @method replace
+	* @param {Description} oldChild - Description.
+	* @param {Description} newChild - Description.
+	*/
 	replace: function (oldChild, newChild) {
 
 		if (!this._container.first._iNext)
@@ -273,7 +357,67 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+    * Call this function to sort the group according to a particular value and order.
+    * For example, to sort game objects for Zelda-style overlaps you might call
+    * <code>myGroup.sort("y",Group.ASCENDING)</code> at the bottom of your
+    * <code>State.update()</code> override.  To sort all existing objects after
+    * a big explosion or bomb attack, you might call <code>myGroup.sort("exists",Group.DESCENDING)</code>.
+    *
+    * @method sort
+    * @param {string} index - The <code>string</code> name of the member variable you want to sort on.  Default value is "z".
+    * @param {number} order A <code>Group</code> constant that defines the sort order.  Possible values are <code>Group.ASCENDING</code> and <code>Group.DESCENDING</code>.  Default value is <code>Group.ASCENDING</code>.
+    */
+
+	//	http://www.chiark.greenend.org.uk/~sgtatham/algorithms/listsort.c
+
+    sort: function (index, order) {
+        // if (typeof index === "undefined") { index = 'z'; }
+        // if (typeof order === "undefined") { order = Phaser.Types.SORT_ASCENDING; }
+        // var _this = this;
+        // this._sortIndex = index;
+        // this._sortOrder = order;
+        // this.members.sort(function (a, b) {
+        //     return _this.sortHandler(a, b);
+        // });
+    },
+
+	/**
+    * Helper function for the sort process.
+    *
+    * @method sortHandler
+    * @param {Basic} obj1 - The first object being sorted.
+    * @param {Basic} obj2 - The second object being sorted.
+    *
+    * @return {number} An integer value: -1 (Obj1 before Obj2), 0 (same), or 1 (Obj1 after Obj2).
+    */
+    sortHandler: function (obj1, obj2) {
+
+    	/*
+        if (!obj1 || !obj2) {
+            //console.log('null objects in sort', obj1, obj2);
+            return 0;
+        }
+        if (obj1[this._sortIndex] < obj2[this._sortIndex]) {
+            return this._sortOrder;
+        } else if (obj1[this._sortIndex] > obj2[this._sortIndex]) {
+            return -this._sortOrder;
+        }
+        return 0;
+        */
+    },
+
 	//	key is an ARRAY of values.
+	/**
+     * Description.
+     *
+     * @method setProperty
+     * @param {Description} child - Description.
+     * @param {array} key - Description.
+     * @param {Description} value - Description.
+     * @param {Description} operation - Description.
+     * @return {number} An integer value: -1 (Obj1 before Obj2), 0 (same), or 1 (Obj1 after Obj2). (TODO)
+     */
 	setProperty: function (child, key, value, operation) {
 
 		operation = operation || 0;
@@ -327,6 +471,16 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+     * Description.
+     *
+     * @method setAll
+     * @param {Description} key - Description.
+     * @param {Description} value - Description.
+     * @param {Description} checkAlive - Description.
+     * @param {Description} checkVisible - Description.
+     * @param {Description} operation - Description.
+     */
 	setAll: function (key, value, checkAlive, checkVisible, operation) {
 
 		key = key.split('.');
@@ -352,6 +506,15 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+     * Description.
+     *
+     * @method setProperty
+     * @param {Description} key - Description.
+     * @param {Description} value - Description.
+     * @param {Description} checkAlive - Description.
+     * @param {Description} checkVisible - Description.
+     */
 	addAll: function (key, value, checkAlive, checkVisible) {
 
 		this.setAll(key, value, checkAlive, checkVisible, 1);
@@ -376,9 +539,18 @@ Phaser.Group.prototype = {
 
 	},
 
-	callAllExists: function (callback, callbackContext, existsValue) {
+	/**
+    * Calls a function on all of the active children (children with exists=true).
+    * You must pass the context in which the callback is applied.
+    * After the context you can add as many parameters as you like, which will all be passed to the child.
+    * 
+    * @method callAll
+    * @param {Description} callback - Description.
+    * @param {Description} callbackContext - Description.
+    */
+	callAll: function (callback, callbackContext) {
 
-		var args = Array.prototype.splice.call(arguments, 3);
+		var args = Array.prototype.splice.call(arguments, 2);
 
 		if (this._container.children.length > 0 && this._container.first._iNext)
 		{
@@ -386,7 +558,7 @@ Phaser.Group.prototype = {
 				
 			do	
 			{
-				if (currentNode.exists == existsValue && currentNode[callback])
+				if (currentNode.exists && currentNode[callback])
 				{
 					currentNode[callback].apply(currentNode, args);
 				}
@@ -400,33 +572,13 @@ Phaser.Group.prototype = {
 	},
 
 	/**
-    * Calls a function on all of the children regardless if they are dead or alive (see callAllExists if you need control over that)
-    * You must pass the context in which the callback is applied.
-    * After the context you can add as many parameters as you like, which will all be passed to the child.
-    */
-	callAll: function (callback, callbackContext) {
-
-		var args = Array.prototype.splice.call(arguments, 2);
-
-		if (this._container.children.length > 0 && this._container.first._iNext)
-		{
-			var currentNode = this._container.first._iNext;
-				
-			do	
-			{
-				if (currentNode[callback])
-				{
-					currentNode[callback].apply(currentNode, args);
-				}
-
-				currentNode = currentNode._iNext;
-			}
-			while (currentNode != this._container.last._iNext)
-
-		}
-
-	},
-
+	* Description.
+	* 
+	* @method forEach
+	* @param {Description} callback - Description.
+    * @param {Description} callbackContext - Description.
+    * @param {bool} checkExists - Description.
+	*/
 	forEach: function (callback, callbackContext, checkExists) {
 
 		if (typeof checkExists == 'undefined') { checkExists = false; }
@@ -450,6 +602,13 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	* 
+	* @method forEachAlive
+	* @param {Description} callback - Description.
+    * @param {Description} callbackContext - Description.
+	*/
 	forEachAlive: function (callback, callbackContext) {
 
 		if (this._container.children.length > 0 && this._container.first._iNext)
@@ -471,6 +630,13 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	* 
+	* @method forEachDead
+	* @param {Description} callback - Description.
+    * @param {Description} callbackContext - Description.
+	*/
 	forEachDead: function (callback, callbackContext) {
 
 		if (this._container.children.length > 0 && this._container.first._iNext)
@@ -494,6 +660,8 @@ Phaser.Group.prototype = {
 	/**
     * Call this function to retrieve the first object with exists == (the given state) in the group.
     *
+    * @method getFirstExists
+    * @param {Description} state - Description.
     * @return {Any} The first child, or null if none found.
     */
 	getFirstExists: function (state) {
@@ -527,6 +695,7 @@ Phaser.Group.prototype = {
     * Call this function to retrieve the first object with alive == true in the group.
     * This is handy for checking if everything's wiped out, or choosing a squad leader, etc.
     *
+    * @method getFirstAlive
     * @return {Any} The first alive child, or null if none found.
     */
 	getFirstAlive: function () {
@@ -555,6 +724,7 @@ Phaser.Group.prototype = {
     * Call this function to retrieve the first object with alive == false in the group.
     * This is handy for checking if everything's wiped out, or choosing a squad leader, etc.
     *
+    * @method getFirstDead
     * @return {Any} The first dead child, or null if none found.
     */
 	getFirstDead: function () {
@@ -582,6 +752,7 @@ Phaser.Group.prototype = {
 	/**
     * Call this function to find out how many members of the group are alive.
     *
+    * @method countLiving
     * @return {number} The number of children flagged as alive. Returns -1 if Group is empty.
     */
 	countLiving: function () {
@@ -611,6 +782,7 @@ Phaser.Group.prototype = {
 	/**
     * Call this function to find out how many members of the group are dead.
     *
+    * @method countDead
     * @return {number} The number of children flagged as dead. Returns -1 if Group is empty.
     */
 	countDead: function () {
@@ -640,9 +812,8 @@ Phaser.Group.prototype = {
 	/**
     * Returns a member at random from the group.
     *
-    * @param {number} startIndex Optional offset off the front of the array. Default value is 0, or the beginning of the array.
-    * @param {number} length Optional restriction on the number of values you want to randomly select from.
-    *
+    * @param {number} startIndex - Optional offset off the front of the array. Default value is 0, or the beginning of the array.
+    * @param {number} length - Optional restriction on the number of values you want to randomly select from.
     * @return {Any} A random child of this Group.
     */
 	getRandom: function (startIndex, length) {
@@ -659,6 +830,12 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	*
+	* @method remove
+	* @param {Description} child - Description.
+	*/
 	remove: function (child) {
 
 		child.events.onRemovedFromGroup.dispatch(child, this);
@@ -667,6 +844,11 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	*
+	* @method removeAll
+	*/
 	removeAll: function () {
 
 		if (this._container.children.length == 0)
@@ -686,6 +868,13 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	*
+	* @method removeBetween
+	* @param {Description} startIndex - Description.
+	* @param {Description} endIndex - Description.
+	*/	
 	removeBetween: function (startIndex, endIndex) {
 
 		if (this._container.children.length == 0)
@@ -707,6 +896,11 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	*
+	* @method destroy
+	*/
 	destroy: function () {
 
 		this.removeAll();
@@ -721,6 +915,11 @@ Phaser.Group.prototype = {
 
 	},
 
+	/**
+	* Description.
+	*
+	* @method dump
+	*/
 	dump: function (full) {
 
 		if (typeof full == 'undefined')

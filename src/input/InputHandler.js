@@ -1,3 +1,10 @@
+/**
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.InputHandler
+*/
+
 Phaser.InputHandler = function (sprite) {
 
     this.game = sprite.game;
@@ -755,8 +762,8 @@ Phaser.InputHandler.prototype = {
     */
     setDragLock: function (allowHorizontal, allowVertical) {
 
-        if (typeof allowHorizontal == 'undefined') { allowHorizontal = true; }
-    	if (typeof allowVertical == 'undefined') { allowVertical = true; }
+    	allowHorizontal = allowHorizontal || true;
+    	allowVertical = allowVertical || true;
 
         this.allowHorizontalDrag = allowHorizontal;
         this.allowVerticalDrag = allowVertical;

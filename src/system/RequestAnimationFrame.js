@@ -28,6 +28,7 @@ Phaser.RequestAnimationFrame = function(game) {
      
      /**
      * @property {bool} isRunning - Description.
+     * @default
      */
 	this.isRunning = false;
 
@@ -49,6 +50,7 @@ Phaser.RequestAnimationFrame.prototype = {
 
 	/**
 	* The function called by the update
+	* @method _onLoop
 	* @private
 	**/
 	_onLoop: null,

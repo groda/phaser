@@ -6,155 +6,140 @@
 */
 
 /**
-* This is the core internal game clock. It manages the elapsed time and calculation of elapsed values,
-* used for game object motion and tweens.
+* Time constructor.
 *
-* @class Time
+* @class Phaser.Time
+* @classdesc This is the core internal game clock. It manages the elapsed time and calculation of elapsed values,
+* used for game object motion and tweens.
 * @constructor
 * @param {Phaser.Game} game A reference to the currently running game.
 */
 Phaser.Time = function (game) {
 
 	/**
-	* A reference to the currently running Game.
-	* @property game
-	* @type {Phaser.Game}
+	* @property {Phaser.Game} game - Local reference to game.
 	*/
 	this.game = game;
 
 	/**
 	* The time at which the Game instance started.
-	* @property _started
+	* @property {number} _started
 	* @private
-	* @type {number}
+	* @default
 	*/
 	this._started = 0;
 
 	/**
 	* The time (in ms) that the last second counter ticked over.
-	* @property _timeLastSecond
+	* @property {number} _timeLastSecond
 	* @private
-	* @type {number}
+	* @default
 	*/
 	this._timeLastSecond = 0;
 
 	/**
 	* The time the game started being paused.
-	* @property _pauseStarted
+	* @property {number} _pauseStarted
 	* @private
-	* @type {number}
+	* @default
 	*/
 	this._pauseStarted = 0;
 
 	/**
 	* The elapsed time calculated for the physics motion updates.
-	* @property physicsElapsed
-	* @public
-	* @type {number}
+	* @property {number} physicsElapsed
+	* @default
 	*/
 	this.physicsElapsed = 0;
 
 	/**
 	* Game time counter.
-	* @property time
-	* @public
-	* @type {number}
+	* @property {number} time
+	* @default
 	*/
 	this.time = 0;
 
 	/**
 	* Records how long the game has been paused for. Is reset each time the game pauses.
-	* @property pausedTime
-	* @public
-	* @type {number}
+	* @property {number} pausedTime
+	* @default
 	*/
 	this.pausedTime = 0;
 
 	/**
 	* The time right now.
-	* @property now
-	* @public
-	* @type {number}
+	* @property {number} now
+    * @default
 	*/
 	this.now = 0;
 
 	/**
 	* Elapsed time since the last frame.
-	* @property elapsed
-	* @public
-	* @type {number}
+	* @property {number} elapsed
+	* @default
 	*/
 	this.elapsed = 0;
 
 	/**
 	* Frames per second.
-	* @property fps
-	* @public
-	* @type {number}
+	* @property {number} fps
+	* @default
 	*/
 	this.fps = 0;
 
 	/**
 	* The lowest rate the fps has dropped to.
-	* @property fpsMin
-	* @public
-	* @type {number}
+	* @property {number} fpsMin
+	* @default
 	*/
 	this.fpsMin = 1000;
 
 	/**
 	* The highest rate the fps has reached (usually no higher than 60fps).
-	* @property fpsMax
-	* @public
-	* @type {number}
+	* @property {number} fpsMax
+	* @default
 	*/
 	this.fpsMax = 0;
 
 	/**
 	* The minimum amount of time the game has taken between two frames.
-	* @property msMin
-	* @public
-	* @type {number}
+	* @property {number} msMin
+	* @default
 	*/
 	this.msMin = 1000;
 
 	/**
 	* The maximum amount of time the game has taken between two frames.
-	* @property msMax
-	* @public
-	* @type {number}
+	* @property {number} msMax
+	* @default
 	*/
 	this.msMax = 0;
 
 	/**
 	* The number of frames record in the last second.
-	* @property frames
-	* @public
-	* @type {number}
+	* @property {number} frames
+	* @default
 	*/
 	this.frames = 0;
 
 	/**
 	* Records how long the game was paused for in miliseconds.
-	* @property pauseDuration
-	* @public
-	* @type {number}
+	* @property {number} pauseDuration
+	* @default
 	*/
 	this.pauseDuration = 0;
 
 	/**
 	* The value that setTimeout needs to work out when to next update
-	* @property timeToCall
-	* @public
-	* @type {number}
+	* @property {number} timeToCall
+	* @default
 	*/
 	this.timeToCall = 0;
 
 	/**
 	* Internal value used by timeToCall as part of the setTimeout loop
-	* @property lastTime
-	* @public
-	* @type {number}
+	* @property {number} lastTime
+	* @default
 	*/
 	this.lastTime = 0;
 
@@ -164,9 +149,8 @@ Phaser.Time = function (game) {
 
 	/**
 	* Description.
-	* @property _justResumed
-	* @public
-	* @type {bool}
+	* @property {bool} _justResumed
+    * @default
 	*/
 	this._justResumed = false;
 
@@ -185,9 +169,9 @@ Phaser.Time.prototype = {
 
 	/**
 	* Updates the game clock and calculate the fps.
-	* This is called automatically by Phaser.Game
+	* This is called automatically by Phaser.Game.
 	* @method update
-	* @param {number} time The current timestamp, either performance.now or Date.now depending on the browser
+	* @param {number} time - The current timestamp, either performance.now or Date.now depending on the browser.
 	*/
 	update: function (time) {
 
@@ -257,7 +241,7 @@ Phaser.Time.prototype = {
 	/**
 	* How long has passed since the given time.
 	* @method elapsedSince
-	* @param {number} since The time you want to measure against.
+	* @param {number} since - The time you want to measure against.
 	* @return {number} The difference between the given time and now.
 	*/
 	elapsedSince: function (since) {
@@ -267,7 +251,7 @@ Phaser.Time.prototype = {
 	/**
 	* How long has passed since the given time (in seconds).
 	* @method elapsedSecondsSince
-	* @param {number} since The time you want to measure (in seconds).
+	* @param {number} since - The time you want to measure (in seconds).
 	* @return {number} Duration between given time and now (in seconds).
 	*/
 	elapsedSecondsSince: function (since) {

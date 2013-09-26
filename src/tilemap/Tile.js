@@ -2,18 +2,18 @@
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
 * @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
-* @module       Phaser.Tilemap
+* @module       Phaser.Tile
 */
 
 
 /**
-* A Tile is a single representation of a tile within a Tilemap
 * Create a new <code>Tile</code>.
 *
-* @class Phaser.TTile
+* @class Phaser.Tile
+* @classdesc A Tile is a single representation of a tile within a Tilemap.
 * @constructor
 * @param {Phaser.Game} game - A reference to the currently running game.
-* @param {Tilemap} tilemap - the tilemap this tile belongs to.
+* @param {Tilemap} tilemap - The tilemap this tile belongs to.
 * @param {number}  index - The index of this tile type in the core map data.
 * @param {number}  width - Width of the tile.
 * @param {number}  height - Height of the tile.
@@ -21,57 +21,76 @@
 Phaser.Tile = function (game, tilemap, index, width, height) {
 
     /**
-    * @property {number}  mass - The virtual mass of the tile.
-    * @defaultvalue
+    * @property {number} mass - The virtual mass of the tile.
+    * @default
     */
     this.mass = 1.0;
 
     /**
-    * @property {bool}   collideNone - Indicating this Tile doesn't collide at all.
-    * @defaultvalue
+    * @property {bool} collideNone - Indicating this Tile doesn't collide at all.
+    * @default
     */
     this.collideNone = true;
 
     /**
-    * @property {bool}   collideLeft - Indicating collide with any object on the left.
-    * @defaultvalue
+    * @property {bool} collideLeft - Indicating collide with any object on the left.
+    * @default
     */
     this.collideLeft = false;
 
     /**
-    * @property {bool}   collideRight - Indicating collide with any object on the right.
-    * @defaultvalue
+    * @property {bool} collideRight - Indicating collide with any object on the right.
+    * @default
     */
     this.collideRight = false;
 
     /**
-    * @property {bool}   collideUp - Indicating collide with any object on the top.
-    * @defaultvalue
+    * @property {bool} collideUp - Indicating collide with any object on the top.
+    * @default
     */
     this.collideUp = false;
 
     /**
-    * @property {bool}   collideDown - Indicating collide with any object on the bottom.
-    * @defaultvalue
+    * @property {bool} collideDown - Indicating collide with any object on the bottom.
+    * @default
     */
     this.collideDown = false;
 
     /**
-    * @property {bool}   separateX - Enable separation at x-axis. 
-    * @defaultvalue
+    * @property {bool} separateX - Enable separation at x-axis. 
+    * @default
     */
     this.separateX = true;
 
     /**
-    * @property {bool}   separateY - Enable separation at y-axis. 
-    * @defaultvalue
+    * @property {bool} separateY - Enable separation at y-axis. 
+    * @default
     */
     this.separateY = true;
 
+    /**
+    * @property {Phaser.Game} game - A reference to the currently running game. 
+    */
     this.game = game;
+    
+    /**
+    * @property {bool} tilemap - The tilemap this tile belongs to.
+    */
     this.tilemap = tilemap;
+    
+    /**
+    * @property {number} index - The index of this tile type in the core map data. 
+    */
     this.index = index;
+    
+    /**
+    * @property {number} width - The width of the tile.
+    */
     this.width = width;
+    
+    /**
+    * @property {number} height - The height of the tile.
+    */
     this.height = height;
 
 };
@@ -122,6 +141,7 @@ Phaser.Tile.prototype = {
 
     /**
     * Reset collision status flags.
+    * @method resetCollision
     */
     resetCollision: function () {
 

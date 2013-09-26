@@ -345,6 +345,7 @@ Phaser.Device.prototype = {
 
     /**
     * Check what browser is game running in.
+    * @method _checkBrowser
     * @private
     */
     _checkBrowser: function () {

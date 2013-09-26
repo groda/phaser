@@ -1,17 +1,49 @@
 /**
-* Phaser.MSPointer
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.MSPointer
+*/
+
+
+/**
+* Phaser - MSPointer constructor.
 *
-* The MSPointer class handles touch interactions with the game and the resulting Pointer objects.
+* @class Phaser.MSPointer
+* @classdesc The MSPointer class handles touch interactions with the game and the resulting Pointer objects.
 * It will work only in Internet Explorer 10 and Windows Store or Windows Phone 8 apps using JavaScript.
 * http://msdn.microsoft.com/en-us/library/ie/hh673557(v=vs.85).aspx
+* @constructor
+* @param {Phaser.Game} game - A reference to the currently running game.
 */
 Phaser.MSPointer = function (game) {
 
+	/**
+	* @property {Phaser.Game} game - Local reference to game.
+	*/
 	this.game = game;
+	
+	/**
+	* @property {Phaser.Game} callbackContext - Description.
+	*/
 	this.callbackContext = this.game;
 
+	/**
+	* @property {Description} mouseDownCallback - Description.
+	* @default
+	*/
 	this.mouseDownCallback = null;
+	
+	/**
+	* @property {Description} mouseMoveCallback - Description.
+	* @default
+	*/
 	this.mouseMoveCallback = null;
+	
+	/**
+	* @property {Description} mouseUpCallback - Description.
+	* @default
+	*/
 	this.mouseUpCallback = null;
 
 };
@@ -22,7 +54,8 @@ Phaser.MSPointer.prototype = {
 
     /**
     * You can disable all Input by setting disabled = true. While set all new input related events will be ignored.
-    * @type {bool}
+    * @method disabled
+    * @return {bool}
     */
 	disabled: false,
 
@@ -31,7 +64,7 @@ Phaser.MSPointer.prototype = {
     _onMSPointerUp: null,
 
 	/**
-    * Starts the event listeners running
+    * Starts the event listeners running.
     * @method start
     */
     start: function () {
@@ -64,6 +97,7 @@ Phaser.MSPointer.prototype = {
     },
 
     /**
+    * Description.
     * @method onPointerDown
     * @param {Any} event
     **/
@@ -82,6 +116,7 @@ Phaser.MSPointer.prototype = {
     },
 
     /**
+    * Description.
     * @method onPointerMove
     * @param {Any} event
     **/
@@ -100,6 +135,7 @@ Phaser.MSPointer.prototype = {
     },
 
     /**
+    * Description.
     * @method onPointerUp
     * @param {Any} event
     **/
@@ -118,7 +154,7 @@ Phaser.MSPointer.prototype = {
     },
 
 	/**
-    * Stop the event listeners
+    * Stop the event listeners.
     * @method stop
     */
     stop: function () {

@@ -1,32 +1,29 @@
 /**
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
-* @license      https://github.com/photonstorm/phaser/blob/master/license.txt  MIT License
-* @module       Phaser.Animation.FrameData
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.FrameData
 */
 
 /**
 * FrameData is a container for Frame objects, which are the internal representation of animation data in Phaser.
 *
-* @class FrameData
+* @class Phaser.Animation.FrameData
 * @constructor
 */
 Phaser.Animation.FrameData = function () {
 
-    /**
-    * Local array of frames.
-    * @property _frames
-    * @private
-    * @type {Array}
-    */
+	/**
+	* @property {array} _frames - Local array of frames.
+	* @private
+	*/
     this._frames = [];
 
-    /**
-    * Local array of frame names for name to index conversions.
-    * @property _frameNames
-    * @private
-    * @type {Array}
-    */
+
+	/**
+	* @property {array} _frameNames - Local array of frame names for name to index conversions.
+	* @private
+	*/
     this._frameNames = [];
 
 };
@@ -37,7 +34,7 @@ Phaser.Animation.FrameData.prototype = {
     * Adds a new Frame to this FrameData collection. Typically called by the Animation.Parser and not directly.
     *
     * @method addFrame
-    * @param {Phaser.Animation.Frame} frame The frame to add to this FrameData set.
+    * @param {Phaser.Animation.Frame} frame - The frame to add to this FrameData set.
     * @return {Phaser.Animation.Frame} The frame that was just added.
     */
     addFrame: function (frame) {
@@ -59,7 +56,7 @@ Phaser.Animation.FrameData.prototype = {
 	* Get a Frame by its numerical index.
     *
     * @method getFrame
-	* @param {Number} index The index of the frame you want to get.
+	* @param {number} index - The index of the frame you want to get.
 	* @return {Phaser.Animation.Frame} The frame, if found.
 	*/
     getFrame: function (index) {
@@ -77,7 +74,7 @@ Phaser.Animation.FrameData.prototype = {
     * Get a Frame by its frame name.
     *
     * @method getFrameByName
-    * @param {String} name The name of the frame you want to get.
+    * @param {string} name - The name of the frame you want to get.
     * @return {Phaser.Animation.Frame} The frame, if found.
     */
     getFrameByName: function (name) {
@@ -95,8 +92,8 @@ Phaser.Animation.FrameData.prototype = {
     * Check if there is a Frame with the given name.
     *
     * @method checkFrameName
-    * @param {String} name The name of the frame you want to check.
-    * @return {Boolean} True if the frame is found, otherwise false.
+    * @param {string} name - The name of the frame you want to check.
+    * @return {bool} True if the frame is found, otherwise false.
     */
     checkFrameName: function (name) {
 
@@ -113,10 +110,10 @@ Phaser.Animation.FrameData.prototype = {
 	* Returns a range of frames based on the given start and end frame indexes and returns them in an Array.
     *
     * @method getFrameRange
-    * @param {Number} start The starting frame index.
-	* @param {Number} end The ending frame index.
-	* @param {Array} [output] Optional array. If given the results will be appended to the end of this Array.
-	* @return {Array} An array of Frames between the start and end index values, or an empty array if none were found.
+    * @param {number} start - The starting frame index.
+	* @param {number} end - The ending frame index.
+	* @param {array} [output] Optional array. If given the results will be appended to the end of this Array.
+	* @return {array} An array of Frames between the start and end index values, or an empty array if none were found.
 	*/
     getFrameRange: function (start, end, output) {
         
@@ -136,10 +133,10 @@ Phaser.Animation.FrameData.prototype = {
     * The frames are returned in the output array, or if none is provided in a new Array object.
     *
     * @method getFrames
-    * @param {Array} frames An Array containing the indexes of the frames to retrieve. If the array is empty then all frames in the FrameData are returned.
-    * @param {Boolean} [useNumericIndex=true] Are the given frames using numeric indexes (default) or strings? (false)
-    * @param {Array} [output] Optional array. If given the results will be appended to the end of this Array, otherwise a new array is created.
-    * @return {Array} An array of all Frames in this FrameData set matching the given names or IDs.
+    * @param {array} frames - An Array containing the indexes of the frames to retrieve. If the array is empty then all frames in the FrameData are returned.
+    * @param {bool} [useNumericIndex=true] - Are the given frames using numeric indexes (default) or strings? (false)
+    * @param {array} [output] - Optional array. If given the results will be appended to the end of this Array, otherwise a new array is created.
+    * @return {array} An array of all Frames in this FrameData set matching the given names or IDs.
 	*/
     getFrames: function (frames, useNumericIndex, output) {
 
@@ -183,10 +180,10 @@ Phaser.Animation.FrameData.prototype = {
     * The frames indexes are returned in the output array, or if none is provided in a new Array object.
     *
     * @method getFrameIndexes
-    * @param {Array} frames An Array containing the indexes of the frames to retrieve. If the array is empty then all frames in the FrameData are returned.
-    * @param {Boolean} [useNumericIndex=true] Are the given frames using numeric indexes (default) or strings? (false)
-    * @param {Array} [output] Optional array. If given the results will be appended to the end of this Array, otherwise a new array is created.
-    * @return {Array} An array of all Frame indexes matching the given names or IDs.
+    * @param {array} frames - An Array containing the indexes of the frames to retrieve. If the array is empty then all frames in the FrameData are returned.
+    * @param {bool} [useNumericIndex=true] - Are the given frames using numeric indexes (default) or strings? (false)
+    * @param {array} [output] - Optional array. If given the results will be appended to the end of this Array, otherwise a new array is created.
+    * @return {array} An array of all Frame indexes matching the given names or IDs.
     */
     getFrameIndexes: function (frames, useNumericIndex, output) {
 
@@ -230,7 +227,7 @@ Object.defineProperty(Phaser.Animation.FrameData.prototype, "total", {
     * Returns the total number of frames in this FrameData set.
     *
     * @method total
-    * @return {Number} The total number of frames in this FrameData set.
+    * @return {number} The total number of frames in this FrameData set.
     */
     get: function () {
         return this._frames.length;

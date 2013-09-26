@@ -1,7 +1,36 @@
+/**
+* @author       Richard Davey <rich@photonstorm.com>
+* @copyright    2013 Photon Storm Ltd.
+* @license      {@link https://github.com/photonstorm/phaser/blob/master/license.txt|MIT License}
+* @module       Phaser.Keyboard
+*/
+
+
+/**
+* Phaser - Keyboard constructor.
+*
+* @class Phaser.Keyboard
+* @classdesc A Keyboard object Description.
+* @constructor
+* @param {Phaser.Game} game - A reference to the currently running game.
+*/
 Phaser.Keyboard = function (game) {
 
+	/**
+	* @property {Phaser.Game} game - Local reference to game.
+	*/
 	this.game = game;
+	
+	/**
+	* @property {Description} _keys - Description.
+	* @private
+	*/
     this._keys = {};
+    
+	/**
+	* @property {Description} _capture - Description.
+	* @private
+	*/
     this._capture = {};
 	
 };
@@ -19,6 +48,10 @@ Phaser.Keyboard.prototype = {
 	_onKeyDown: null,
 	_onKeyUp: null,
 
+	/**
+	* Description.
+	* @method start
+	*/
     start: function () {
 
         var _this = this;
@@ -36,6 +69,10 @@ Phaser.Keyboard.prototype = {
 
     },
 
+	/**
+	* Description.
+	* @method stop
+	*/
     stop: function () {
 
         document.body.removeEventListener('keydown', this._onKeyDown);
@@ -48,6 +85,7 @@ Phaser.Keyboard.prototype = {
     * There are some keys this can be annoying for, like the arrow keys or space bar, which make the browser window scroll.
     * You can use addKeyCapture to consume the keyboard event for specific keys so it doesn't bubble up to the the browser.
     * Pass in either a single keycode or an array/hash of keycodes.
+    * @method addKeyCapture
     * @param {Any} keycode
     */
     addKeyCapture: function (keycode) {
@@ -66,7 +104,9 @@ Phaser.Keyboard.prototype = {
     },
 
 	/**
-    * @param {Number} keycode
+	* Description.
+	* @method removeKeyCapture
+    * @param {number} keycode
     */
     removeKeyCapture: function (keycode) {
 
@@ -74,6 +114,10 @@ Phaser.Keyboard.prototype = {
 
     },
 
+	/**
+	* Description.
+	* @method clearCaptures
+    */
     clearCaptures: function () {
 
         this._capture = {};
@@ -81,6 +125,8 @@ Phaser.Keyboard.prototype = {
     },
 
 	/**
+	* Description.
+	* @method onKeyDown
     * @param {KeyboardEvent} event
     */    
     onKeyDown: function (event) {
@@ -112,6 +158,8 @@ Phaser.Keyboard.prototype = {
     },
 
 	/**
+	* Description.
+	* @method onKeyUp
     * @param {KeyboardEvent} event
     */
     onKeyUp: function (event) {
@@ -142,6 +190,10 @@ Phaser.Keyboard.prototype = {
 
     },
 
+	/**
+	* Description.
+	* @method reset
+    */
     reset: function () {
 
         for (var key in this._keys)
@@ -152,8 +204,10 @@ Phaser.Keyboard.prototype = {
     },
 
 	/**
-    * @param {Number} keycode
-    * @param {Number} [duration]
+	* Description.
+	* @method justPressed
+    * @param {number} keycode
+    * @param {number} [duration]
     * @return {bool}
     */
     justPressed: function (keycode, duration) {
@@ -169,9 +223,11 @@ Phaser.Keyboard.prototype = {
 
     },
 
-	/**
-    * @param {Number} keycode
-    * @param {Number} [duration]
+    /**
+	* Description.
+	* @method justReleased
+    * @param {number} keycode
+    * @param {number} [duration]
     * @return {bool}
     */
     justReleased: function (keycode, duration) {
@@ -187,8 +243,10 @@ Phaser.Keyboard.prototype = {
 
     },
 
-	/**
-    * @param {Number} keycode
+    /**
+	* Description.
+	* @method isDown
+    * @param {number} keycode
     * @return {bool}
     */
     isDown: function (keycode) {

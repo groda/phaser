@@ -11,6 +11,8 @@
 *
 * @class Phaser.Color
 */
+
+
 Phaser.Color = {
 
     /**
