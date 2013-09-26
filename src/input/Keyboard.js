@@ -37,15 +37,32 @@ Phaser.Keyboard = function (game) {
 
 Phaser.Keyboard.prototype = {
 
+	/**
+    * @property {Phaser.Game} game - Local reference to game.
+	*/
 	game: null,
 
     /**
     * You can disable all Input by setting disabled = true. While set all new input related events will be ignored.
-    * @type {bool}
+    * @default
+    * @property {bool} disabled
     */
 	disabled: false,
 
+	/**
+	* Description.
+	* @property {Description} _onKeyDown
+	* @private
+	* @default
+	*/
 	_onKeyDown: null,
+	
+	/**
+	* Description.
+	* @property {Description} _onKeyUp
+	* @private
+	* @default
+	*/
 	_onKeyUp: null,
 
 	/**

@@ -50,17 +50,39 @@ Phaser.MSPointer = function (game) {
 
 Phaser.MSPointer.prototype = {
 
+	/**
+	* @property {Phaser.Game} game - Local reference to game.
+	*/	
 	game: null,
 
     /**
     * You can disable all Input by setting disabled = true. While set all new input related events will be ignored.
-    * @method disabled
-    * @return {bool}
+    * @property {bool} disabled
     */
 	disabled: false,
 
+	/**
+	* Description.
+	* @property {Description} _onMSPointerDown
+	* @private
+	* @default
+	*/
     _onMSPointerDown: null,
+    
+	/**
+	* Description.
+	* @property {Description} _onMSPointerMove
+	* @private
+	* @default
+	*/
     _onMSPointerMove: null,
+    
+	/**
+	* Description.
+	* @property {Description} _onMSPointerUp
+	* @private
+	* @default
+	*/
     _onMSPointerUp: null,
 
 	/**

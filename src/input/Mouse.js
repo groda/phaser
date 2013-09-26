@@ -52,19 +52,22 @@ Phaser.Mouse.RIGHT_BUTTON = 2;
 
 Phaser.Mouse.prototype = {
 
+    /**
+	* @property {Phaser.Game} game - Local reference to game.
+	*/	
 	game: null,
 
     /**
     * You can disable all Input by setting disabled = true. While set all new input related events will be ignored.
-    * @method disabled
-    * @return {bool}
+    * @property {bool} disabled
+    * @default
     */
 	disabled: false,
 
     /**
     * If the mouse has been Pointer Locked successfully this will be set to true.
-    * @method locked
-    * @return {bool}
+    * @property {bool} locked
+    * @default
     */
     locked: false,
 

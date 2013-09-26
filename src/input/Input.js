@@ -204,8 +204,7 @@ Phaser.Input.prototype = {
 
     /**
     * A Pointer object
-    * @property 
-    * @type {Pointer} pointer1
+    * @property {Pointer} pointer1
     **/
     pointer1: null,
 
@@ -690,8 +689,7 @@ Object.defineProperty(Phaser.Input.prototype, "x", {
 	/**
     * The X coordinate of the most recently active pointer.
     * This value takes game scaling into account automatically. See Pointer.screenX/clientX for source values.
-    * @property x
-    * @type {Number}
+    * @property {number} x
     **/
     get: function () {
         return this._x;
