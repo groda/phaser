@@ -15,9 +15,20 @@
 */
 Phaser.RequestAnimationFrame = function(game) {
 	
+     /**
+     * @property {Phaser.Game} game - The currently running game.
+     */
 	this.game = game;
 
+     /**
+     * @property {bool} _isSetTimeOut  - Description.
+     * @private
+     */
 	this._isSetTimeOut = false;
+     
+     /**
+     * @property {bool} isRunning - Description.
+     */
 	this.isRunning = false;
 
 	var vendors = [
@@ -89,7 +100,7 @@ Phaser.RequestAnimationFrame.prototype = {
 	},
 
 	/**
-	* The update method for the setTimeout
+	* The update method for the setTimeout.
 	* @method updateSetTimeout
 	**/
 	updateSetTimeout: function () {
@@ -101,7 +112,7 @@ Phaser.RequestAnimationFrame.prototype = {
 	},
 
 	/**
-	* Stops the requestAnimationFrame from running
+	* Stops the requestAnimationFrame from running.
 	* @method stop
 	**/
 	stop: function () {

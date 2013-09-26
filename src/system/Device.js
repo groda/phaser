@@ -20,7 +20,7 @@ Phaser.Device = function () {
     * An optional 'fix' for the horrendous Android stock browser bug
     * {@link https://code.google.com/p/android/issues/detail?id=39247}
     * @property {bool} patchAndroidClearRectBug - Description.
-    * @defaultvalue
+    * @default
     */
     this.patchAndroidClearRectBug = false;
 
@@ -28,43 +28,43 @@ Phaser.Device = function () {
 
     /**
     * @property {bool} desktop - Is running desktop?
-    * @defaultvalue
+    * @default
     */
     this.desktop = false;
 
     /**
     * @property {bool} iOS - Is running on iOS?
-    * @defaultvalue
+    * @default
     */
     this.iOS = false;
 
     /**
     * @property {bool} android - Is running on android?
-    * @defaultvalue
+    * @default
     */
     this.android = false;
 
     /**
     * @property {bool} chromeOS - Is running on chromeOS?
-    * @defaultvalue
+    * @default
     */
     this.chromeOS = false;
 
     /**
     * @property {bool} linux - Is running on linux?
-    * @defaultvalue
+    * @default
     */
     this.linux = false;
 
     /**
     * @property {bool} maxOS - Is running on maxOS?
-    * @defaultvalue
+    * @default
     */
     this.macOS = false;
 
     /**
     * @property {bool} windows - Is running on windows?
-    * @defaultvalue
+    * @default
     */
     this.windows = false;
 
@@ -72,61 +72,61 @@ Phaser.Device = function () {
 
     /**
     * @property {bool} canvas - Is canvas available?
-    * @defaultvalue
+    * @default
     */
     this.canvas = false;
 
     /**
     * @property {bool} file - Is file available?
-    * @defaultvalue
+    * @default
     */
     this.file = false;
 
     /**
     * @property {bool} fileSystem - Is fileSystem available?
-    * @defaultvalue
+    * @default
     */
     this.fileSystem = false;
 
     /**
     * @property {bool} localStorage - Is localStorage available?
-    * @defaultvalue
+    * @default
     */
     this.localStorage = false;
 
     /**
     * @property {bool} webGL - Is webGL available?
-    * @defaultvalue
+    * @default
     */
     this.webGL = false;
 
     /**
     * @property {bool} worker - Is worker available?
-    * @defaultvalue
+    * @default
     */
     this.worker = false;
 
     /**
     * @property {bool} touch - Is touch available?
-    * @defaultvalue
+    * @default
     */
     this.touch = false;
 
     /**
     * @property {bool} mspointer - Is mspointer available?
-    * @defaultvalue
+    * @default
     */
     this.mspointer = false;
 
     /**
     * @property {bool} css3D - Is css3D available?
-    * @defaultvalue
+    * @default
     */
     this.css3D = false;
 
     /** 
     * @property {bool} pointerLock - Is Pointer Lock available?
-    * @defaultvalue
+    * @default
     */
     this.pointerLock = false;
 
@@ -134,61 +134,61 @@ Phaser.Device = function () {
 
     /**
     * @property {bool} arora - Is running in arora?
-    * @defaultvalue
+    * @default
     */
     this.arora = false;
 
     /**
     * @property {bool} chrome - Is running in chrome?
-    * @defaultvalue
+    * @default
     */
     this.chrome = false;
 
     /**
     * @property {bool} epiphany - Is running in epiphany?
-    * @defaultvalue
+    * @default
     */
     this.epiphany = false;
 
     /**
     * @property {bool} firefox - Is running in firefox?
-    * @defaultvalue
+    * @default
     */
     this.firefox = false;
 
     /**
     * @property {bool} ie - Is running in ie?
-    * @defaultvalue
+    * @default
     */
     this.ie = false;
 
     /**
     * @property {number} ieVersion - Version of ie?
-    * @defaultvalue
+    * @default
     */
     this.ieVersion = 0;
 
     /**
     * @property {bool} mobileSafari - Is running in mobileSafari?
-    * @defaultvalue
+    * @default
     */
     this.mobileSafari = false;
 
     /**
     * @property {bool} midori - Is running in midori?
-    * @defaultvalue
+    * @default
     */
     this.midori = false;
 
     /**
     * @property {bool} opera - Is running in opera?
-    * @defaultvalue
+    * @default
     */
     this.opera = false;
 
     /**
     * @property {bool} safari - Is running in safari?
-    * @defaultvalue
+    * @default
     */
     this.safari = false;
     this.webApp = false;
@@ -197,49 +197,49 @@ Phaser.Device = function () {
 
     /**
     * @property {bool} audioData - Are Audio tags available?
-    * @defaultvalue
+    * @default
     */
     this.audioData = false;
 
     /**
     * @property {bool} webAudio - Is the WebAudio API available?
-    * @defaultvalue
+    * @default
     */
     this.webAudio = false;
 
     /**
     * @property {bool} ogg - Can this device play ogg files?
-    * @defaultvalue
+    * @default
     */
     this.ogg = false;
 
     /**
     * @property {bool} opus - Can this device play opus files?
-    * @defaultvalue
+    * @default
     */
     this.opus = false;
 
     /**
     * @property {bool} mp3 - Can this device play mp3 files?
-    * @defaultvalue
+    * @default
     */
     this.mp3 = false;
 
     /**
     * @property {bool} wav - Can this device play wav files?
-    * @defaultvalue
+    * @default
     */
     this.wav = false;
     /**
     * Can this device play m4a files?
     * @property {bool} m4a - True if this device can play m4a files.
-    * @defaultvalue
+    * @default
     */
     this.m4a = false;
 
     /**
     * @property {bool} webm - Can this device play webm files?
-    * @defaultvalue
+    * @default
     */
     this.webm = false;
 
@@ -247,25 +247,25 @@ Phaser.Device = function () {
 
     /**
     * @property {bool} iPhone - Is running on iPhone?
-    * @defaultvalue
+    * @default
     */
     this.iPhone = false;
 
     /**
     * @property {bool} iPhone4 - Is running on iPhone4?
-    * @defaultvalue
+    * @default
     */
     this.iPhone4 = false;
 
     /** 
     * @property {bool} iPad - Is running on iPad?
-    * @defaultvalue
+    * @default
     */
     this.iPad = false;
 
     /**
     * @property {number} pixelRatio - PixelRatio of the host device?
-    * @defaultvalue
+    * @default
     */
     this.pixelRatio = 0;
 

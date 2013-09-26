@@ -1,3 +1,4 @@
+**************************
 /**
 * @author       Richard Davey <rich@photonstorm.com>
 * @copyright    2013 Photon Storm Ltd.
@@ -6,23 +7,21 @@
 */
 
 /**
-* The Canvas class handles everything related to the <canvas> tag as a DOM Element, like styles, offset, aspect ratio
+* The Canvas class handles everything related to the &lt;canvas&gt; tag as a DOM Element, like styles, offset, aspect ratio
 *
 * @class Canvas
 * @static
 */
-
 Phaser.Canvas = {
     /**
-    * Creates the <canvas> tag
+    * Creates the &lt;canvas&gt; tag
     *
     * @method create
     * @param {number} width - The desired width.
     * @param {number} height - The desired height.
-    * @return {HTMLCanvasElement} The newly created <canvas> tag.
+    * @return {HTMLCanvasElement} The newly created &lt;canvas&gt; tag.
     */
     create: function (width, height) {
-
         width = width || 256;
         height = height || 256;
 
