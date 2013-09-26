@@ -62,15 +62,15 @@ Phaser.SignalBinding.prototype = {
 
     /**
     * If binding is active and should be executed.
-    * @method active
-    * @return {bool}
-    */
+    * @property {bool} active
+    * @default
+    */ 
     active: true,
 
     /**
     * Default parameters passed to listener during `Signal.dispatch` and `SignalBinding.execute` (curried parameters).
-    * @method params 
-    * @return {array|null}
+    * @property {array|null} params 
+    * @default 
     */
     params: null,
 

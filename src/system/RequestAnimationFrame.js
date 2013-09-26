@@ -50,7 +50,7 @@ Phaser.RequestAnimationFrame.prototype = {
 
 	/**
 	* The function called by the update
-	* @method _onLoop
+	* @property _onLoop
 	* @private
 	**/
 	_onLoop: null,

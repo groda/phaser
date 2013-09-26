@@ -47,24 +47,22 @@ Phaser.Signal.prototype = {
     * If Signal should keep record of previously dispatched parameters and
 	* automatically execute listener during `add()`/`addOnce()` if Signal was
 	* already dispatched before.
-	* @method memorize
-	* @return {bool} Description.
+	* @property {bool} memorize
 	*/
 	memorize: false,
 
 	/**
 	* Description.
-    * @method _shouldPropagate
+	* @property {bool} _shouldPropagate 
 	* @private
-	* @return {bool} Description.
 	*/
 	_shouldPropagate: true,
 
 	/**
 	* If Signal is active and should broadcast events.
 	* <p><strong>IMPORTANT:</strong> Setting this property during a dispatch will only affect the next dispatch, if you want to stop the propagation of a signal use `halt()` instead.</p>
-	* @method active
-    * @return {bool} Description
+	* @property {bool} active
+    * @default
     */
 	active: true,
 

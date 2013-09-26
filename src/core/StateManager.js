@@ -15,8 +15,16 @@
 */
 Phaser.StateManager = function (game, pendingState) {
 
+	/**
+	* A reference to the currently running game.
+	* @property {Phaser.Game} game.
+	*/
 	this.game = game;
 
+	/**
+	* Description.
+	* @property {Description} states.
+	*/
 	this.states = {};
 
 	if (pendingState !== null)
@@ -29,108 +37,94 @@ Phaser.StateManager = function (game, pendingState) {
 Phaser.StateManager.prototype = {
 	
 	/**
-	* Description.
-	* @method game
-	* @return {Phaser.Game} Description.
+	* A reference to the currently running game.
+	* @property {Phaser.Game} game.
 	*/
 	game: null,
 
 	/**
 	* The state to be switched to in the next frame.
-	* @method _pendingState
+	* @property {State} _pendingState 
 	* @private
-	* @return {State} Description.
 	*/
 	_pendingState: null,
 
 	/**
 	* Flag that sets if the State has been created or not.
-	* @method _created
+	* @property {bool}_created
 	* @private
-	* @return {bool} Description.
 	*/
 	_created: false,
 
 	/**
 	* The state to be switched to in the next frame.
-	* @method states
-	* @return {object} Description.
+	* @property {Description} states
 	*/
 	states: {},
 
 	/**
 	* The current active State object (defaults to null).
-	* @method current
-	* @return {string} Description.
+	* @property {string} current
 	*/
 	current: '',
 	
 	/**
 	* This will be called when the state is started (i.e. set as the current active state).
-	* @method onInitCallback
-	* @return {function} Description.
+	* @property {function} onInitCallback
 	*/
 	onInitCallback: null,
 
 	/**
 	* This will be called when init states (loading assets...).
-	* @method onPreloadCallback
-	* @return {function} Description.
+	* @property {function} onPreloadCallback
 	*/
 	onPreloadCallback: null,
 	
 	/**
 	* This will be called when create states (setup states...).
-	* @method onCreateCallback
-	* @return {function} Description.
+	* @property {function} onCreateCallback
 	*/
 	onCreateCallback: null,
 
 	/**
 	* This will be called when State is updated, this doesn't happen during load (@see onLoadUpdateCallback).
-	* @method onUpdateCallback
-	* @return {function} Description.
+	* @property {function} onUpdateCallback
 	*/
 	onUpdateCallback: null,
 
 	/**
 	* This will be called when the State is rendered, this doesn't happen during load (see onLoadRenderCallback).
-	* @method onRenderCallback
-	* @return {function} Description.
+	* @property {function} onRenderCallback
 	*/
 	onRenderCallback: null,
 
 	/**
 	* This will be called before the State is rendered and before the stage is cleared.
-	* @method onPreRenderCallback
-	* @return {function} Description.
+	* @property {function} onPreRenderCallback
 	*/
 	onPreRenderCallback: null,
 
 	/**
 	* This will be called when the State is updated but only during the load process.
-	* @method onLoadUpdateCallback
-	* @return {function} Description.
+	* @property {function} onLoadUpdateCallback
 	*/
 	onLoadUpdateCallback: null,
 
 	/**
 	* This will be called when the State is rendered but only during the load process.
-	* @return {function} Description.
+	* @property {function} onLoadRenderCallback
 	*/
 	onLoadRenderCallback: null,
 
 	/**
 	* This will be called when states paused.
-	* @method onPausedCallback
-	* @return {function} Description.
+	* @property {function} onPausedCallback
 	*/
 	onPausedCallback: null,
 
 	/**
 	* This will be called when the state is shut down (i.e. swapped to another state).
-	* @method onShutDownCallback
-	* @return {function} Description.
+	* @property {function} onShutDownCallback
 	*/
 	onShutDownCallback: null,
 

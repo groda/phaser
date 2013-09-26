@@ -262,12 +262,7 @@ Object.defineProperty(Phaser.Animation.prototype, "frameTotal", {
 
 });
 
-/**
-* Sets the current frame to the given frame index and updates the texture cache.
-* @method
-* @param {number} value - The frame to display
-* @memberOf {Phaser.Animation}
-*/
+	
 Object.defineProperty(Phaser.Animation.prototype, "frame", {
     get: function () {
 

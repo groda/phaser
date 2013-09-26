@@ -48,6 +48,11 @@ Phaser.TweenManager = function (game) {
 
 Phaser.TweenManager.prototype = {
 
+	/**
+	* Description.
+	* @property {string} REVISION
+	* @default 
+	*/	
 	REVISION: '11dev',
 
 	/**

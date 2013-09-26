@@ -22,11 +22,13 @@ Phaser.Input = function (game) {
 
 	/**
     * @property {Description} hitCanvas - Description. 
+    * @default
 	*/
     this.hitCanvas = null;
     
 	/**
      * @property {Description} hitContext - Description. 
+     * @default
  	*/
     this.hitContext = null;
 	
@@ -38,12 +40,15 @@ Phaser.Input.MOUSE_TOUCH_COMBINE = 2;
 
 Phaser.Input.prototype = {
 
+    /** 
+    * @property {Phaser.Game} game
+    */	
     game: null,
 
     /**
     * How often should the input pointers be checked for updates?
     * A value of 0 means every single frame (60fps), a value of 1 means every other frame (30fps) and so on.
-    * @type {number}
+    * @property {number} pollRate 
     */
     pollRate: 0,
     _pollCounter: 0,

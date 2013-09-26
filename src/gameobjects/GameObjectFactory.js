@@ -29,14 +29,14 @@ Phaser.GameObjectFactory = function (game) {
 Phaser.GameObjectFactory.prototype = {
 
     /**
-    * Description.
-    * @method game.
+    * @property {Phaser.Game} game - A reference to the currently running Game.
+    * @default
     */
 	game: null,
 	
     /**
-	* Description.
-	* @method world.
+	* @property {Phaser.World} world - A reference to the game world.
+	* @default
 	*/
     world: null,
 
