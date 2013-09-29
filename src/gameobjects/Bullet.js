@@ -437,6 +437,13 @@ Phaser.Bullet.prototype.bringToTop = function() {
 
 }
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Bullet.prototype, 'angle', {
 
     get: function() {
@@ -449,11 +456,12 @@ Object.defineProperty(Phaser.Bullet.prototype, 'angle', {
 
 });
 
+/**
+* Is this sprite visible to the camera or not?
+* @returns {bool} Description
+*/
 Object.defineProperty(Phaser.Bullet.prototype, "inCamera", {
     
-    /**
-    * Is this sprite visible to the camera or not?
-    */
     get: function () {
         return this._cache.cameraVisible;
     }

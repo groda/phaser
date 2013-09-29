@@ -197,22 +197,19 @@ Phaser.Circle.prototype = {
 
 //  Getters / Setters
 
+/**
+* Get the diameter of the circle. The largest distance between any two points on the circle. The same as the radius * 2.
+* @return {number}
+*//**
+* Set the diameter of the circle. The largest distance between any two points on the circle. The same as the radius * 2.
+* @param {number} value - The diameter of the circle.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "diameter", {
 
-    /**
-    * The diameter of the circle. The largest distance between any two points on the circle. The same as the radius * 2.
-    * @method diameter
-    * @return {Number}
-    **/
     get: function () {
         return this._diameter;
     },
 
-    /**
-    * The diameter of the circle. The largest distance between any two points on the circle. The same as the radius * 2.
-    * @method diameter
-    * @param {Number} The diameter of the circle.
-    **/
     set: function (value) {
         if (value > 0) {
             this._diameter = value;
@@ -222,22 +219,19 @@ Object.defineProperty(Phaser.Circle.prototype, "diameter", {
 
 });
 
+/**
+* Get the radius of the circle. The length of a line extending from the center of the circle to any point on the circle itself. The same as half the diameter.
+* @return {number}
+*//**
+* Set
+* @param {number} value - The radius of the circle. The length of a line extending from the center of the circle to any point on the circle itself. The same as half the diameter.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "radius", {
     
-    /**
-    * The radius of the circle. The length of a line extending from the center of the circle to any point on the circle itself. The same as half the diameter.
-    * @method radius
-    * @return {Number}
-    **/
     get: function () {
         return this._radius;
     },
 
-    /**
-    * The radius of the circle. The length of a line extending from the center of the circle to any point on the circle itself. The same as half the diameter.
-    * @method radius
-    * @param {Number} The radius of the circle.
-    **/
     set: function (value) {
         if (value > 0) {
             this._radius = value;
@@ -247,22 +241,19 @@ Object.defineProperty(Phaser.Circle.prototype, "radius", {
 
 });
 
+/**
+* Get the x coordinate of the leftmost point of the circle. Changing the left property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
+* @return {number} The x coordinate of the leftmost point of the circle.
+*//**
+* Set the x coordinate of the leftmost point of the circle. Changing the left property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
+* @param {number} value - The value to adjust the position of the leftmost point of the circle by.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "left", {
     
-    /**
-    * The x coordinate of the leftmost point of the circle. Changing the left property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
-    * @method left
-    * @return {Number} The x coordinate of the leftmost point of the circle.
-    **/
     get: function () {
         return this.x - this._radius;
     },
 
-    /**
-    * The x coordinate of the leftmost point of the circle. Changing the left property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
-    * @method left
-    * @param {Number} The value to adjust the position of the leftmost point of the circle by.
-    **/
     set: function (value) {
         if (value > this.x) {
             this._radius = 0;
@@ -274,22 +265,19 @@ Object.defineProperty(Phaser.Circle.prototype, "left", {
 
 });
 
+/**
+* Get the x coordinate of the rightmost point of the circle. Changing the right property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
+* @return {number} The x coordinate of the rightmost point of the circle.
+*//**
+* Set the x coordinate of the rightmost point of the circle. Changing the right property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
+* @param {number} value - The amount to adjust the diameter of the circle by.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "right", {
 
-    /**
-    * The x coordinate of the rightmost point of the circle. Changing the right property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
-    * @method right
-    * @return {Number}
-    **/
     get: function () {
         return this.x + this._radius;
     },
 
-    /**
-    * The x coordinate of the rightmost point of the circle. Changing the right property of a Circle object has no effect on the x and y properties. However it does affect the diameter, whereas changing the x value does not affect the diameter property.
-    * @method right
-    * @param {Number} The amount to adjust the diameter of the circle by.
-    **/
     set: function (value) {
         if (value < this.x) {
             this._radius = 0;
@@ -301,22 +289,19 @@ Object.defineProperty(Phaser.Circle.prototype, "right", {
 
 });
 
+/**
+* Get the sum of the y minus the radius property. Changing the top property of a Circle object has no effect on the x and y properties, but does change the diameter.
+* @return {number}
+*//**
+* The sum of the y minus the radius property. Changing the top property of a Circle object has no effect on the x and y properties, but does change the diameter.
+* @param {number} value - The amount to adjust the height of the circle by.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "top", {
 
-    /**
-    * The sum of the y minus the radius property. Changing the top property of a Circle object has no effect on the x and y properties, but does change the diameter.
-    * @method bottom
-    * @return {Number}
-    **/
     get: function () {
         return this.y - this._radius;
     },
     
-    /**
-    * The sum of the y minus the radius property. Changing the top property of a Circle object has no effect on the x and y properties, but does change the diameter.
-    * @method bottom
-    * @param {Number} The amount to adjust the height of the circle by.
-    **/
     set: function (value) {
         if (value > this.y) {
             this._radius = 0;
@@ -328,22 +313,19 @@ Object.defineProperty(Phaser.Circle.prototype, "top", {
 
 });
 
+/**
+* Get the sum of the y and radius properties. Changing the bottom property of a Circle object has no effect on the x and y properties, but does change the diameter.
+* @return {number}
+*//**
+* Set the sum of the y and radius properties. Changing the bottom property of a Circle object has no effect on the x and y properties, but does change the diameter.
+* @param {number} value - The value to adjust the height of the circle by.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "bottom", {
 
-    /**
-    * The sum of the y and radius properties. Changing the bottom property of a Circle object has no effect on the x and y properties, but does change the diameter.
-    * @method bottom
-    * @return {Number}
-    **/
     get: function () {
         return this.y + this._radius;
     },
 
-    /**
-    * The sum of the y and radius properties. Changing the bottom property of a Circle object has no effect on the x and y properties, but does change the diameter.
-    * @method bottom
-    * @param {Number} The value to adjust the height of the circle by.
-    **/
     set: function (value) {
 
         if (value < this.y) {
@@ -356,13 +338,12 @@ Object.defineProperty(Phaser.Circle.prototype, "bottom", {
 
 });
 
+/**
+* Gets the area of this Circle.
+* @return {number} This area of this circle.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "area", {
 
-    /**
-    * Gets the area of this Circle.
-    * @method area
-    * @return {Number} This area of this circle.
-    **/
     get: function () {
         if (this._radius > 0) {
             return Math.PI * this._radius * this._radius;
@@ -373,19 +354,21 @@ Object.defineProperty(Phaser.Circle.prototype, "area", {
 
 });
 
+/**
+* Determines whether or not this Circle object is empty.
+* @return {bool} A value of true if the Circle objects diameter is less than or equal to 0; otherwise false.
+*//**
+* Sets all of the Circle objects properties to 0. A Circle object is empty if its diameter is less than or equal to 0.
+* @param {Description} value - Description.
+*/
 Object.defineProperty(Phaser.Circle.prototype, "empty", {
 
-    /**
-    * Determines whether or not this Circle object is empty.
-    * @method empty
-    * @return {bool} A value of true if the Circle objects diameter is less than or equal to 0; otherwise false.
-    **/
     get: function () {
         return (this._diameter == 0);
     },
 
     /**
-    * Sets all of the Circle objects properties to 0. A Circle object is empty if its diameter is less than or equal to 0.
+    * 
     * @method setEmpty
     * @return {Circle} This Circle object
     **/

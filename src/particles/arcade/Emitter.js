@@ -561,42 +561,51 @@ Phaser.Particles.Arcade.Emitter.prototype.at = function (object) {
 
 }
 
+/**
+* Get the emitter alpha.
+* @return {Description}
+*//**
+* Set the emiter alpha value.
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "alpha", {
     
-    /**
-    * Get the emitter alpha.
-    */
     get: function () {
         return this._container.alpha;
     },
 
-    /**
-    * Set the emiter alpha value.
-    */
     set: function (value) {
         this._container.alpha = value;
     }
 
 });
 
+/**
+* Get the emitter visible state.
+* @return {bool}
+*//**
+* Set the emitter visible state.
+* @param {bool} value - Description
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "visible", {
     
-    /**
-    * Get the emitter visible state.
-    */
     get: function () {
         return this._container.visible;
     },
 
-    /**
-    * Set the emitter visible state.
-    */
     set: function (value) {
         this._container.visible = value;
     }
 
 });
 
+/**
+* Get
+* @return {bool}
+*//**
+* Set
+* @param {bool} value - Description
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "x", {
 
     get: function () {
@@ -609,6 +618,13 @@ Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "x", {
 
 });
 
+/**
+* Get
+* @return {bool}
+*//**
+* Set
+* @param {bool} value - Description
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "y", {
 
     get: function () {
@@ -621,6 +637,10 @@ Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "y", {
 
 });
 
+/**
+* Get
+* @return {number}
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "left", {
     
     get: function () {
@@ -629,6 +649,10 @@ Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "left", {
 
 });
 
+/**
+* Get
+* @return {number}
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "right", {
     
     get: function () {
@@ -637,6 +661,10 @@ Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "right", {
 
 });
 
+/**
+* Get
+* @return {number}
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "top", {
     
     get: function () {
@@ -645,6 +673,10 @@ Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "top", {
 
 });
 
+/**
+* Get
+* @return {number}
+*/
 Object.defineProperty(Phaser.Particles.Arcade.Emitter.prototype, "bottom", {
     
     get: function () {

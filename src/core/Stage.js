@@ -120,21 +120,19 @@ Phaser.Stage.prototype = {
 
 };
 
+/**
+* Get
+* @returns {string} Returns the background color of the stage.
+*//**
+* Set
+* @param {string} The background color you want the stage to have
+*/.
 Object.defineProperty(Phaser.Stage.prototype, "backgroundColor", {
 
-    /**
-    * @method backgroundColor
-    * @return {string} returns the background color of the stage
-    */
     get: function () {
         return this._backgroundColor;
     },
 
-    /**
-    * @method backgroundColor
-    * @param {string} the background color you want the stage to have
-    * @return {string} returns the background color of the stage
-    */
     set: function (color) {
 
         this._backgroundColor = color;

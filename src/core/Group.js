@@ -1006,6 +1006,11 @@ Phaser.Group.prototype = {
 
 };
 
+
+/**
+* Get
+* @return {Description}
+*/
 Object.defineProperty(Phaser.Group.prototype, "length", {
 
     get: function () {
@@ -1014,6 +1019,13 @@ Object.defineProperty(Phaser.Group.prototype, "length", {
 
 });
 
+/**
+* Get
+* @return {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Group.prototype, "x", {
 
     get: function () {
@@ -1026,6 +1038,13 @@ Object.defineProperty(Phaser.Group.prototype, "x", {
 
 });
 
+/**
+* Get
+* @return {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Group.prototype, "y", {
 
     get: function () {
@@ -1038,6 +1057,13 @@ Object.defineProperty(Phaser.Group.prototype, "y", {
 
 });
 
+/**
+* Get
+* @return {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Group.prototype, "angle", {
 
     get: function() {
@@ -1050,6 +1076,13 @@ Object.defineProperty(Phaser.Group.prototype, "angle", {
 
 });
 
+/**
+* Get
+* @return {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Group.prototype, "rotation", {
 
     get: function () {
@@ -1062,6 +1095,13 @@ Object.defineProperty(Phaser.Group.prototype, "rotation", {
 
 });
 
+/**
+* Get
+* @return {Description}
+*//**
+* Set
+* @param {Description} value - Description.
+*/
 Object.defineProperty(Phaser.Group.prototype, "visible", {
 
     get: function () {

@@ -250,19 +250,34 @@ Phaser.Animation.prototype = {
 
 };
 
+/**
+* @return {number} The total number of frames in this animation.
+*/
 Object.defineProperty(Phaser.Animation.prototype, "frameTotal", {
 
-    /**
-    * @method frameTotal
-    * @return {number} The total number of frames in this animation.
-    */
+ 
     get: function () {
         return this._frames.length;
     }
 
 });
 
-	
+
+/**
+* 
+* 
+*//**
+* 
+*
+*/
+
+/**
+* Returns the current frame, or if not set the index of the most recent frame.
+* @returns {Animation.Frame}
+*//**
+* Sets the current frame to the given frame index and updates the texture cache.
+*  @param {number} value - The frame to display
+*/
 Object.defineProperty(Phaser.Animation.prototype, "frame", {
     get: function () {
 

@@ -158,6 +158,13 @@ Phaser.Graphics.prototype.update = function() {
 
 }
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Graphics.prototype, 'angle', {
 
     get: function() {
@@ -170,6 +177,13 @@ Object.defineProperty(Phaser.Graphics.prototype, 'angle', {
 
 });
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Graphics.prototype, 'x', {
 
     get: function() {
@@ -182,6 +196,13 @@ Object.defineProperty(Phaser.Graphics.prototype, 'x', {
 
 });
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Graphics.prototype, 'y', {
 
     get: function() {

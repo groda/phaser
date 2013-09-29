@@ -638,13 +638,12 @@ Phaser.Pointer.prototype = {
 
 };
 
+/**
+* How long the Pointer has been depressed on the touchscreen. If not currently down it returns -1.
+* @return {number}
+*/
 Object.defineProperty(Phaser.Pointer.prototype, "duration", {
 
-	/**
-    * How long the Pointer has been depressed on the touchscreen. If not currently down it returns -1.
-    * @property duration
-    * @type {number}
-    **/
     get: function () {
 
         if (this.isUp)
@@ -658,12 +657,12 @@ Object.defineProperty(Phaser.Pointer.prototype, "duration", {
 
 });
 
+/**
+ * Gets the X value of this Pointer in world coordinates based on the given camera.
+ * @return {Description}
+ */
 Object.defineProperty(Phaser.Pointer.prototype, "worldX", {
 
-	/**
-    * Gets the X value of this Pointer in world coordinates based on the given camera.
-    * @param {Camera} [camera]
-    */
     get: function () {
 
 		return this.game.world.camera.x + this.x;
@@ -672,12 +671,12 @@ Object.defineProperty(Phaser.Pointer.prototype, "worldX", {
 
 });
 
+/**
+ * Gets the Y value of this Pointer in world coordinates based on the given camera.
+ * @return {Description}
+ */
 Object.defineProperty(Phaser.Pointer.prototype, "worldY", {
 
-	/**
-    * Gets the Y value of this Pointer in world coordinates based on the given camera.
-    * @param {Camera} [camera]
-    */
     get: function () {
 
 		return this.game.world.camera.y + this.y;

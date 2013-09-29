@@ -148,6 +148,13 @@ Phaser.BitmapText.prototype.update = function() {
 
 }
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.BitmapText.prototype, 'angle', {
 
     get: function() {
@@ -160,6 +167,13 @@ Object.defineProperty(Phaser.BitmapText.prototype, 'angle', {
 
 });
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.BitmapText.prototype, 'x', {
 
     get: function() {
@@ -172,6 +186,13 @@ Object.defineProperty(Phaser.BitmapText.prototype, 'x', {
 
 });
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.BitmapText.prototype, 'y', {
 
     get: function() {

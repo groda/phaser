@@ -384,9 +384,9 @@ Phaser.Tilemap.prototype.getTileOverlaps = function (object) {
 
 /**
 * Check whether this tilemap collides with the given game object or group of objects.
-* @param objectOrGroup {Function} Target object of group you want to check.
-* @param callback {Function} This is called if objectOrGroup collides the tilemap.
-* @param context {object} Callback will be called with this context.
+* @param {Function} objectOrGroup - Target object of group you want to check.
+* @param {Function} callback - This is called if objectOrGroup collides the tilemap.
+* @param {object} context - Callback will be called with this context.
 * @return {bool} Return true if this collides with given object, otherwise return false.
 */
 Phaser.Tilemap.prototype.collide = function (objectOrGroup, callback, context) {
@@ -458,7 +458,7 @@ Phaser.Tilemap.prototype.putTile = function (x, y, index, layer) {
 };
 
 /**
-* Calls the renderer
+* Calls the renderer.
 */
 Phaser.Tilemap.prototype.update = function () {
 
@@ -466,6 +466,9 @@ Phaser.Tilemap.prototype.update = function () {
 
 };
 
+/**
+* Description.
+*/
 Phaser.Tilemap.prototype.destroy = function () {
 
     this.tiles.length = 0;
@@ -473,6 +476,10 @@ Phaser.Tilemap.prototype.destroy = function () {
 
 };
 
+/**
+* Get width in pixels.
+* @return {number}
+*/
 Object.defineProperty(Phaser.Tilemap.prototype, "widthInPixels", {
 
     get: function () {
@@ -481,6 +488,10 @@ Object.defineProperty(Phaser.Tilemap.prototype, "widthInPixels", {
 
 });
 
+/**
+* Get height in pixels.
+* @return {number}
+*/
 Object.defineProperty(Phaser.Tilemap.prototype, "heightInPixels", {
 
     get: function () {

@@ -630,6 +630,13 @@ Phaser.TilemapLayer.prototype = {
 
 };
 
+/**
+* Get
+* @return {Description}
+*//**
+* Set
+* @param {Description} value - Description.
+*/
 Object.defineProperty(Phaser.TilemapLayer.prototype, 'alpha', {
 
     get: function() {

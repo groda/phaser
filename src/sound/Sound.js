@@ -654,6 +654,10 @@ Phaser.Sound.prototype = {
 
 };
 
+/**
+* Get
+* @return {bool} Description.
+*/
 Object.defineProperty(Phaser.Sound.prototype, "isDecoding", {
 
     get: function () {
@@ -662,6 +666,10 @@ Object.defineProperty(Phaser.Sound.prototype, "isDecoding", {
 
 });
 
+/**
+* Get
+* @return {bool} Description.
+*/
 Object.defineProperty(Phaser.Sound.prototype, "isDecoded", {
 
     get: function () {
@@ -670,22 +678,19 @@ Object.defineProperty(Phaser.Sound.prototype, "isDecoded", {
 
 });
 
+/**
+* Get
+* @return {bool} Whether or not the sound is muted.
+*//**
+* Mutes sound.
+* @param {bool} value - Whether or not the sound is muted.
+*/
 Object.defineProperty(Phaser.Sound.prototype, "mute", {
-
 	
-    /**
-    * Mutes sound.
-    * @method mute
-    * @return {bool} whether or not the sound is muted
-    */
     get: function () {
         return this._muted;
     },
-    /**
-    * Mutes sound.
-    * @method mute
-    * @return {bool} whether or not the sound is muted
-    */
+ 
     set: function (value) {
 
     	value = value || null;
@@ -725,20 +730,19 @@ Object.defineProperty(Phaser.Sound.prototype, "mute", {
 
 });
 
+/**
+* Get the current volume. A value between 0 (silence) and 1 (full volume).
+* @return {number}
+*//**
+* Set
+* @param {number} value - Sets the current volume. A value between 0 (silence) and 1 (full volume).
+*/
 Object.defineProperty(Phaser.Sound.prototype, "volume", {
 
-    /**
-    * @method volume
-    * @return {number} The current volume. A value between 0 (silence) and 1 (full volume)
-    */
     get: function () {
         return this._volume;
     },
 
-    /**
-    * @method volume
-    * @return {number} Sets the current volume. A value between 0 (silence) and 1 (full volume)
-    */
     set: function (value) {
 
         if (this.usingWebAudio)

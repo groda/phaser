@@ -269,12 +269,11 @@ Object.defineProperty(Phaser.AnimationManager.prototype, "frameData", {
 
 });
 
+/**
+* @return {number} Returns the total number of frames in the loaded FrameData, or -1 if no FrameData is loaded.
+*/
 Object.defineProperty(Phaser.AnimationManager.prototype, "frameTotal", {
-
-    /**
-    * @method frameTotal
-    * @return {number} Returns the total number of frames in the loaded FrameData, or -1 if no FrameData is loaded.
-    */
+ 
     get: function () {
 
         if (this._frameData)
@@ -289,12 +288,14 @@ Object.defineProperty(Phaser.AnimationManager.prototype, "frameTotal", {
 
 });
 
+/**
+* @return {number} Returns the index of the current frame.
+*//**
+* @param {number} value Sets the current frame on the Sprite and updates the texture cache for display.
+*/
 Object.defineProperty(Phaser.AnimationManager.prototype, "frame", {
 
-    /**
-    * @method frame
-    * @return {number} Returns the index of the current frame.
-    */
+ 
     get: function () {
 
     	if (this.currentFrame)
@@ -304,10 +305,7 @@ Object.defineProperty(Phaser.AnimationManager.prototype, "frame", {
 	    
     },
 
-	/**
-    * @method frame
-    * @param {number} value Sets the current frame on the Sprite and updates the texture cache for display.
-    */
+
     set: function (value) {
 
         if (this._frameData && this._frameData.getFrame(value) !== null)
@@ -322,12 +320,13 @@ Object.defineProperty(Phaser.AnimationManager.prototype, "frame", {
 
 });
 
+/**
+* @return {string} Returns the name of the current frame if it has one.
+*//**
+* @param {string} value Sets the current frame on the Sprite and updates the texture cache for display.
+*/
 Object.defineProperty(Phaser.AnimationManager.prototype, "frameName", {
 
-    /**
-    * @method frameName
-    * @return {string} Returns the name of the current frame if it has one.
-    */
     get: function () {
 
     	if (this.currentFrame)
@@ -337,10 +336,6 @@ Object.defineProperty(Phaser.AnimationManager.prototype, "frameName", {
 
     },
 
-	/**
-    * @method frameName
-    * @param {string} value Sets the current frame on the Sprite and updates the texture cache for display.
-    */
     set: function (value) {
 
         if (this._frameData && this._frameData.getFrameByName(value) !== null)

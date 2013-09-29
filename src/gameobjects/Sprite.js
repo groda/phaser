@@ -635,6 +635,14 @@ Phaser.Sprite.prototype.getBounds = function(rect) {
 
 }
 
+
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Sprite.prototype, 'angle', {
 
     get: function() {
@@ -647,67 +655,71 @@ Object.defineProperty(Phaser.Sprite.prototype, 'angle', {
 
 });
 
+/**
+* Get the animation frame number.
+* @returns {Description}
+*//**
+* Set the animation frame by frame number.
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Sprite.prototype, "frame", {
     
-	/**
-    * Get the animation frame number.
-    */
     get: function () {
         return this.animations.frame;
     },
 
-	/**
-    * Set the animation frame by frame number.
-    */
     set: function (value) {
         this.animations.frame = value;
     }
 
 });
 
+/**
+* Get the animation frame name.
+* @returns {Description}
+*//**
+* Set the animation frame by frame name.
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Sprite.prototype, "frameName", {
     
-	/**
-    * Get the animation frame name.
-    */
     get: function () {
         return this.animations.frameName;
     },
 
-	/**
-    * Set the animation frame by frame name.
-    */
     set: function (value) {
         this.animations.frameName = value;
     }
 
 });
 
+/**
+* Is this sprite visible to the camera or not?
+* @returns {bool}
+*/
 Object.defineProperty(Phaser.Sprite.prototype, "inCamera", {
     
-    /**
-    * Is this sprite visible to the camera or not?
-    */
     get: function () {
         return this._cache.cameraVisible;
     }
 
 });
 
+/**
+* Get the input enabled state of this Sprite.
+* @returns {Description}
+*//**
+* Set the ability for this sprite to receive input events.
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Sprite.prototype, "crop", {
 
-    /**
-    * Get the input enabled state of this Sprite.
-    */
     get: function () {
 
         return this._cropRect;
 
     },
 
-    /**
-    * Set the ability for this sprite to receive input events.
-    */
     set: function (value) {
 
         if (value instanceof Phaser.Rectangle)
@@ -736,20 +748,21 @@ Object.defineProperty(Phaser.Sprite.prototype, "crop", {
 
 });
 
+/**
+* Get the input enabled state of this Sprite.
+* @returns {Description}
+*//**
+* Set the ability for this sprite to receive input events.
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Sprite.prototype, "inputEnabled", {
     
-    /**
-    * Get the input enabled state of this Sprite.
-    */
     get: function () {
 
         return (this.input.enabled);
 
     },
 
-    /**
-    * Set the ability for this sprite to receive input events.
-    */
     set: function (value) {
 
         if (value)

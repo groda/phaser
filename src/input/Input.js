@@ -684,13 +684,16 @@ Phaser.Input.prototype = {
 
 //	Getters / Setters
 
+/**
+* The X coordinate of the most recently active pointer.
+* This value takes game scaling into account automatically. See Pointer.screenX/clientX for source values.
+* @return {number}
+*//**
+* Set
+* @param {number} value - Description.
+*/
 Object.defineProperty(Phaser.Input.prototype, "x", {
 
-	/**
-    * The X coordinate of the most recently active pointer.
-    * This value takes game scaling into account automatically. See Pointer.screenX/clientX for source values.
-    * @property {number} x
-    **/
     get: function () {
         return this._x;
     },
@@ -701,14 +704,16 @@ Object.defineProperty(Phaser.Input.prototype, "x", {
 
 });
 
+/**
+* The Y coordinate of the most recently active pointer.
+    * This value takes game scaling into account automatically. See Pointer.screenY/clientY for source values.
+* @return {number}
+*//**
+* Set
+* @param {number} value - Description.
+*/
 Object.defineProperty(Phaser.Input.prototype, "y", {
     
-	/**
-    * The Y coordinate of the most recently active pointer.
-    * This value takes game scaling into account automatically. See Pointer.screenY/clientY for source values.
-    * @property y
-    * @type {Number}
-    **/
     get: function () {
         return this._y;
     },
@@ -719,6 +724,10 @@ Object.defineProperty(Phaser.Input.prototype, "y", {
 
 });
 
+/**
+* Get
+* @return {Description} Description.
+*/
 Object.defineProperty(Phaser.Input.prototype, "pollLocked", {
 
     get: function () {
@@ -727,26 +736,24 @@ Object.defineProperty(Phaser.Input.prototype, "pollLocked", {
 
 });
 
+/**
+* Get the total number of inactive Pointers
+* @return {number} The number of Pointers currently inactive.
+*/
 Object.defineProperty(Phaser.Input.prototype, "totalInactivePointers", {
 
-	/**
-    * Get the total number of inactive Pointers
-    * @method totalInactivePointers
-    * @return {Number} The number of Pointers currently inactive
-    **/
     get: function () {
         return 10 - this.currentPointers;
     }
 
 });
 
+/**
+* Recalculates the total number of active Pointers
+* @return {number} The number of Pointers currently active.
+*/
 Object.defineProperty(Phaser.Input.prototype, "totalActivePointers", {
     
-	/**
-    * Recalculates the total number of active Pointers
-    * @method totalActivePointers
-    * @return {Number} The number of Pointers currently active
-    **/
     get: function () {
 
         this.currentPointers = 0;
@@ -765,6 +772,10 @@ Object.defineProperty(Phaser.Input.prototype, "totalActivePointers", {
 
 });
 
+/**
+* Get
+* @return {Description}
+*/
 Object.defineProperty(Phaser.Input.prototype, "worldX", {
 
     get: function () {
@@ -773,6 +784,10 @@ Object.defineProperty(Phaser.Input.prototype, "worldX", {
 
 });
 
+/**
+* Get
+* @return {Description}
+*/
 Object.defineProperty(Phaser.Input.prototype, "worldY", {
 
     get: function () {

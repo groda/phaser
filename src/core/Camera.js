@@ -263,19 +263,19 @@ Phaser.Camera.prototype = {
 
 };
 
+/**
+* Get
+* @return {number} The x position.
+*//**
+* Sets the camera's x position and clamp it if it's outside the world bounds.
+* @param {number} value - The x position.
+*/
 Object.defineProperty(Phaser.Camera.prototype, "x", {
 
-    /**
-    * @method x
-    * @return {number} The x position.
-    */
     get: function () {
         return this.view.x;
     },
-    /**
-    * @method x
-    * @return {number} Sets the camera's x position and clamp it if it's outside the world bounds.
-    */
+ 
     set: function (value) {
         this.view.x = value;
         this.checkWorldBounds();
@@ -283,20 +283,19 @@ Object.defineProperty(Phaser.Camera.prototype, "x", {
 
 });
 
+/**
+* Get
+* @return {number} The y position.
+*//**
+* Sets the camera's y position and clamp it if it's outside the world bounds.
+* @param {number} value - The y position.
+*/
 Object.defineProperty(Phaser.Camera.prototype, "y", {
-
-    /**
-    * @method y
-    * @return {number} The y position.
-    */
+	
     get: function () {
         return this.view.y;
     },
 
-    /**
-    * @method y
-    * @return {number} Sets the camera's y position and clamp it if it's outside the world bounds.
-    */
     set: function (value) {
         this.view.y = value;
         this.checkWorldBounds();
@@ -304,40 +303,38 @@ Object.defineProperty(Phaser.Camera.prototype, "y", {
 
 });
 
+/**
+* Returns the width of the view rectangle, in pixels.
+*  @return {number} The width of the view rectangle, in pixels.
+*//**
+* Sets the width of the view rectangle.
+* @param {number} value - Width of the view rectangle.
+*/
 Object.defineProperty(Phaser.Camera.prototype, "width", {
 
-    /**
-    * @method width
-    * @return {number} The width of the view rectangle, in pixels.
-    */
     get: function () {
         return this.view.width;
     },
 
-    /**
-    * @method width
-    * @return {number} Sets the width of the view rectangle.
-    */
     set: function (value) {
         this.view.width = value;
     }
 
 });
 
+/**
+* Returns the height of the view rectangle, in pixels.
+*  @return {number} The height of the view rectangle, in pixels.
+*//**
+* Sets the height of the view rectangle.
+* @param {number} value - Height of the view rectangle.
+*/
 Object.defineProperty(Phaser.Camera.prototype, "height", {
 
-    /**
-    * @method height
-    * @return {number} The height of the view rectangle, in pixels.
-    */
     get: function () {
         return this.view.height;
     },
 
-    /**
-    * @method height
-    * @return {number} Sets the height of the view rectangle.
-    */
     set: function (value) {
         this.view.height = value;
     }

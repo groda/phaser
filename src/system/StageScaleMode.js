@@ -510,7 +510,8 @@ Phaser.StageScaleMode.prototype = {
 };
 
 /**
-* Description.
+* Get
+* @return {bool}
 */
 Object.defineProperty(Phaser.StageScaleMode.prototype, "isFullScreen", {
 
@@ -528,7 +529,8 @@ Object.defineProperty(Phaser.StageScaleMode.prototype, "isFullScreen", {
 });
 
 /**
-* Description.
+* Get
+* @return {number}
 */
 Object.defineProperty(Phaser.StageScaleMode.prototype, "isPortrait", {
 
@@ -539,7 +541,8 @@ Object.defineProperty(Phaser.StageScaleMode.prototype, "isPortrait", {
 });
 
 /**
-* Description.
+* Get
+* @return {number}
 */
 Object.defineProperty(Phaser.StageScaleMode.prototype, "isLandscape", {
 

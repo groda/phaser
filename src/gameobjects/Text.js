@@ -143,6 +143,13 @@ Phaser.Text.prototype.update = function() {
 
 }
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {Description} value - Description
+*/
 Object.defineProperty(Phaser.Text.prototype, 'angle', {
 
     get: function() {

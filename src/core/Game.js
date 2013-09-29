@@ -425,6 +425,13 @@ Phaser.Game.prototype = {
 
 };
 
+/**
+* Get
+* @returns {Description}
+*//**
+* Set
+* @param {bool} value - Paused or not?
+*/
 Object.defineProperty(Phaser.Game.prototype, "paused", {
 
     get: function () {

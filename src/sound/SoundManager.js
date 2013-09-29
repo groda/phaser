@@ -342,24 +342,21 @@ Phaser.SoundManager.prototype = {
 
 };
 
+/**
+* A global audio mute toggle.
+* @return {bool} Whether or not the game is on "mute".
+*//**
+* Mute sounds.
+* @param {bool} value - Whether or not the game is on "mute"
+*/
 Object.defineProperty(Phaser.SoundManager.prototype, "mute", {
 
-	/**
-    * A global audio mute toggle.
-    * @method mute
-    * @return {bool} whether or not the game is on "mute"
-    */
     get: function () {
 
         return this._muted;
 
     },
 
-    /**
-    * Mute sounds.
-    * @method mute
-    * @return {bool} whether or not the game is on "mute"
-    */
     set: function (value) {
 
         value = value || null;
@@ -415,12 +412,15 @@ Object.defineProperty(Phaser.SoundManager.prototype, "mute", {
 
 });
 
+/**
+* Get
+* @return {number} The global audio volume. A value between 0 (silence) and 1 (full volume).
+*//**
+* Sets the global volume
+* @return {number} value - The global audio volume. A value between 0 (silence) and 1 (full volume).
+*/
 Object.defineProperty(Phaser.SoundManager.prototype, "volume", {
     
-    /**
-    * @method volume
-    * @return {number} The global audio volume. A value between 0 (silence) and 1 (full volume)
-    */
     get: function () {
 
         if (this.usingWebAudio)
@@ -434,11 +434,6 @@ Object.defineProperty(Phaser.SoundManager.prototype, "volume", {
 
     },
 
-	/**
-    * Sets the global volume
-    * @method volume
-    * @return {number} The global audio volume. A value between 0 (silence) and 1 (full volume)
-    */
     set: function (value) {
 
         value = this.game.math.clamp(value, 1, 0);
